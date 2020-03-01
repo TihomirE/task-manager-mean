@@ -1,0 +1,19 @@
+// for global styles/variables
+
+//TODO - create/choose global colors (or use/edit bulma ones)
+$blue: hsl(217, 71%, 53%);
+$cyan: hsl(204, 86%, 53%);
+
+//TODO - find font(s) and add
+
+//TODO - install fa icons
+
+
+
+html {
+    background: linear-gradient(to right top, $blue, $cyan);
+}
+
+html, body {
+    height: 100%;
+}
