@@ -1,14 +1,5 @@
-// for global styles/variables
-
-//TODO - create/choose global colors (or use/edit bulma ones)
-$blue: hsl(217, 71%, 53%);
-$cyan: hsl(204, 86%, 53%);
-
-//TODO - find font(s) and add
-
-//TODO - install fa icons
-
-
+// for global styles
+@import './theme/variables';
 
 html {
     background: linear-gradient(to right top, $blue, $cyan);
@@ -17,3 +8,48 @@ html {
 html, body {
     height: 100%;
 }
+
+// ***** TASKS *****
+
+.tasks-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-top: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.tasks-manager-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 1024px;
+    max-height: 512px;
+}
+
+.tasks-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 256px;
+    padding: 32px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.task-actions-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 32px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.task-title {
+    font-family: 'Papyrus';
+    text-transform: uppercase;
+    font-size: 24px !important;
+}
+
+// **********

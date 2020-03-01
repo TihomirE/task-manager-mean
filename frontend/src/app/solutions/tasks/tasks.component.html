@@ -1,4 +1,23 @@
 <div class="tasks-container">
-    <p>tasks works!</p>
-    <router-outlet></router-outlet>
+    <div class="tasks-manager-container">
+        <div class="tasks-sidebar has-background-white">
+            <h1 class="title task-title has-text-danger">Tasks</h1>
+
+            <div class="list-menu">
+                <!-- <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+                  <p>{{ list.title }}</p>
+                </a> -->
+                <a class="list-menu-item is-active">Task 1</a>
+                <a class="list-menu-item">Task 2</a>
+                <a class="list-menu-item">Task 3</a>
+            </div>
+
+            <button class="button is-primary has-text-white">+ New Task</button>
+        </div>
+        <div class="task-actions-container has-background-light">
+            <!-- this should be just a child component (no routing neccessary) -->
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
 </div>
