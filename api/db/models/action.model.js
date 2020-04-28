@@ -11,8 +11,9 @@ const ActionSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required: true
     }
+    // TODO - create soft delete
 })
 
-const Action = mongoose.Model('Action', ActionSchema);
+const Action = mongoose.model('Action', ActionSchema);
 
 module.exports = { Action }

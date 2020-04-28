@@ -1,0 +1,3 @@
+-- start mongodb so the app can connect
+sudo service mongod start
+

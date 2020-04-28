@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 // setting mongoose to use global JS promise (insted of default BlueBird one)
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/TaksManager', { useNewUrlParser: true }).then(() => {
+// using default mongoDB port / DB name = TaskManager
+mongoose.connect('mongodb://localhost:27017/TaksManager', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log("Connected to MongoDB successfully :)");
 }).catch((e) => {
     console.log("Error while attempting to connect to MongoDB");

@@ -7,8 +7,9 @@ const TaskSchema = new mongoose.Schema({
         minlength: 1,
         trim: true
     }
+    // TODO - create soft delete
 })
 
-const Task = mongoose.Model('Task', TaskSchema);
+const Task = mongoose.model('Task', TaskSchema);
 
 module.exports = { Task }
