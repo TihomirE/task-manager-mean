@@ -14,3 +14,7 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+// root URL - !for production it needs to be set up in environment.prod.ts!
+export const ROOT_URL = 'http://localhost:3000';
