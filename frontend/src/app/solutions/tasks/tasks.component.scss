@@ -1,6 +1,19 @@
 // TODO - move to main styles when done
 @import '../../../theme/variables';
 
+.msg-container {
+    width: 100%;
+    max-width: 1024px;
+
+    .msg-header {
+        justify-content: center;
+    }
+
+    .btn-position {
+        justify-content: space-around;
+    }
+}
+
 .list-menu {
     display: flex;
     flex-direction: column;

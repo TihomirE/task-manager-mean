@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WebRequestService } from '../request/web-request.service';
+import { ITask } from 'src/app/solutions/tasks/interfaces/ITask';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +11,8 @@ export class TaskService {
 
   constructor(private webReqService: WebRequestService) { }
 
-  getTasks() {
-    return this.webReqService.get('lists');
+  getTasks() { // : Observable<ITask[]>
+    return this.webReqService.get('tasks');
   }
 
   createTask(title: string) {
