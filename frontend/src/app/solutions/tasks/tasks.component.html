@@ -1,41 +1,50 @@
-<div class="tasks-container">
-    <!-- <div class="tasks-manager-container"> -->
-    <div *ngIf="taskList">
-        <div *ngIf="taskList.length < 1" class="msg-container">
-            <article class="message is-warning msg-container">
-                <div class="message-header msg-header">
-                    <p>Hooray! You have no tasks!</p>
+<div *ngIf="taskList">
+    <div *ngIf="taskList.length < 1" class="msg-container">
+        <article class="message is-warning msg-container">
+            <div class="message-header msg-header">
+                <p>Hooray! You have no tasks!</p>
+            </div>
+            <div class="message-body">
+                <div class="buttons are-medium btn-position">
+                    <button class="button is-link is-outlined">+ New Task</button>
+                    <button class="button is-link is-outlined">View completed</button>
                 </div>
-                <div class="message-body">
-                    <div class="buttons are-medium btn-position">
-                        <button class="button is-link is-outlined">+ New Task</button>
-                        <button class="button is-link is-outlined">View completed</button>
-                    </div>
+            </div>
+        </article>
+    </div>
+
+    <div *ngIf="taskList.length > 0">
+        <div class="tasks-container">
+
+            <div class="has-background-white"
+                [ngClass]="{'tasks-list': showTask, 'tasks-task-active': showTaskActive, 'task-details-actions-active': showActionActive}">
+                <div style="display: flex;">
+                    <h1 class="title task-title has-text-danger" style="width: 60%;">Tasks</h1>
+                    <button class="button is-primary has-text-white" (click)="createNewTask()" style="width: 40%;">+ New
+                        Task</button>
                 </div>
-            </article>
-
-        </div>
-
-        <div *ngIf="taskList.length > 0">
-
-            <div class="tasks-sidebar has-background-white">
-                <h1 class="title task-title has-text-danger">Tasks</h1>
 
                 <div class="list-menu" *ngFor="let task of taskList">
                     <!-- <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
                   <p>{{ list.title }}</p>
                 </a> -->
-                    <a class="list-menu-item is-active">{{task.title}}</a>
+                    <a class="list-menu-item" (click)="selectTask(task)"
+                        [ngClass]="{'is-active': task == selectedTask}">
+                        {{task.title}}</a>
                 </div>
 
-                <button class="button is-primary has-text-white" (click)="createNewTask()">+ New Task</button>
             </div>
-            <div class="task-actions-container has-background-light">
-                <!-- this should be just a child component (no routing neccessary) -->
-                <router-outlet></router-outlet>
+
+            <div *ngIf="taskSelected" [ngClass]="{'task-details-active': showTaskActive, 'tasks-actions-active': showActionActive}">
+                <app-task-details [task]="selectedTask" (actionsEmitter)="showActions()"></app-task-details>
+            </div>
+
+
+            <div *ngIf="showActionActive" class="actions-list">
+                <app-task-actions></app-task-actions> <!--  [actions]="selectedTaskActions" -->
             </div>
 
         </div>
+
     </div>
-    <!-- </div> -->
 </div>

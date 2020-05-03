@@ -1,79 +1,90 @@
 // for global styles
-@import './theme/variables';
+@import "./theme/variables";
 
 html {
-    background: linear-gradient(to right top, $blue, $cyan);
+  background: linear-gradient(to right top, $blue, $cyan);
 }
 
 // TODO - replace
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 // ***** TASKS *****
 
 .tasks-container {
-    display: flex;
-    // align-items: center;
-    justify-content: center;
-    padding-top: 50px;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.tasks-manager-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    max-width: 1024px;
-    max-height: 512px;
+.tasks-base {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 8px;
+  margin: 5px;
 }
 
-.tasks-sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 256px;
-    padding: 32px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+.tasks-list {
+  @extend .tasks-base;
+
+  width: 75%;
 }
 
-.task-actions-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 32px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+.tasks-task-active {
+  @extend .tasks-base;
+
+  // transition: box-shadow 0.2s ease, transform 0.2s ease;
+  width: 50%;
+}
+
+.tasks-actions-active {
+  width: 35%;
+}
+
+.task-details-active {
+  width: 50%;
+}
+
+.task-details-actions-active {
+  @extend .tasks-base;
+
+  width: 35%;
+}
+
+.actions-list {
+  width: 30%;
 }
 
 .task-title {
-    font-family: 'Papyrus';
-    text-transform: uppercase;
-    font-size: 24px !important;
+  font-family: "Papyrus";
+  text-transform: uppercase;
+  font-size: 24px !important;
 }
 
 .action-item {
-    background-color: white;
-    padding: 15px 20px;
-    border-radius: 4px;
-    margin-top: 10px;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
 
-    cursor: pointer;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 
-    &:active {
-        transform: scale(0.95);
-    }
+  &:active {
+    transform: scale(0.95);
+  }
 
-    &:hover {
-        box-shadow: 0 0 0 5px #eeeeee;
-    }
+  &:hover {
+    box-shadow: 0 0 0 5px #eeeeee;
+  }
 
-    &.complete {
-        text-decoration: line-through;
-        opacity: 0.8;
-    }
+  &.complete {
+    text-decoration: line-through;
+    opacity: 0.8;
+  }
 }
 
 // **********

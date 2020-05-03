@@ -30,9 +30,10 @@
         width: 100%;
         color: #5f5f5f;
         margin-bottom: 5px;
+        background: $light;
 
         &:hover {
-            background: $light;
+            background: lightgrey;
         }
 
         &.is-active {

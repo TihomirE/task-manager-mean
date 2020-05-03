@@ -10,13 +10,21 @@ import { ITask } from './interfaces/ITask';
 export class TasksComponent implements OnInit {
 
   taskList: ITask[];
+  selectedTask: ITask;
+
+  // TODO - refactor to enum, _tasksShowHelper
+  showTask: boolean;
+  showTaskActive: boolean;
+  showActionActive: boolean;
+  taskSelected: boolean;
+  actionsSelected: boolean;
 
   constructor(private taskService: TaskService) { }
 
   createNewTask() {
     this.taskService.createTask('Testing').subscribe(
       result => {
-        console.log(result);
+        this.getTasks();
       });
   }
 
@@ -24,7 +32,27 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks().subscribe(
       (result: ITask[]) => {
         this.taskList = result;
+        if (this.taskList.length > 0) {
+          this.showTask = true;
+        }
       });
+  }
+
+  selectTask(task: ITask) {
+    this.selectedTask = task;
+    // TODO - get actions for task from server (and pass them to actions component)
+
+    this.taskSelected = true;
+    this.showTask = false;
+    this.showTaskActive = true;
+    this.showActionActive = false;
+  }
+
+  showActions() {
+    this.actionsSelected = true;
+    this.showTask = false;
+    this.showTaskActive = false;
+    this.showActionActive = true;
   }
 
   ngOnInit(): void {
