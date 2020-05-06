@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '', component: MainLayoutComponent,
     children: [
       { path: '', redirectTo: 'app', pathMatch: 'full' },
-      { path: 'app', loadChildren: './solutions/tasks/tasks.module#TasksModule' }
+      { path: 'app', loadChildren: () => import('./solutions/tasks/tasks.module').then(m =>m.TasksModule) },
+      { path: 'language', loadChildren: () => import('./solutions/language/language-change.module').then(m => m.LanguageChangeModule) }
     ]
   }
 ];

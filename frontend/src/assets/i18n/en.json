@@ -1,0 +1,10 @@
+{
+    "MAIN": {},
+    "TASK": {
+        "no_tasks_msg": "Hooray! You have no tasks!"
+    },
+    "HEADER": {
+        "language": "Language"
+    },
+    "FOOTER": {}
+}

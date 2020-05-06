@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TaskDetailsComponent } from './details/task-details.component';
 import { TaskActionsComponent } from './actions/task-actions.component';
+import { TaskService } from 'src/app/core/tasks/task.service';
 
 @NgModule({
     declarations: [TasksComponent, TaskDetailsComponent, TaskActionsComponent],
@@ -11,7 +12,7 @@ import { TaskActionsComponent } from './actions/task-actions.component';
         CommonModule,
         TasksRoutingModule
     ],
-    providers: []
+    providers: [TaskService]
 })
 
 export class TasksModule { }
