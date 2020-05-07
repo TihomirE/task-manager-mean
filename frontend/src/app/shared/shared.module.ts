@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-    declarations: [MainLayoutComponent, NavbarComponent],
+    declarations: [MainLayoutComponent, NavbarComponent, FooterComponent],
     imports: [
         CommonModule,
         RouterModule,
-        // TranslateModule
+        TranslateModule
     ],
     providers: [],
-    exports: [MainLayoutComponent, NavbarComponent]
+    exports: [MainLayoutComponent, NavbarComponent, FooterComponent, TranslatePipe
+    ]
 })
 
 export class SharedModule { }

@@ -16,8 +16,10 @@ export class LanguageService {
     constructor(private translate: TranslateService) {
 
         this.languages = [
+            // TODO - imgUrls are missing
             { id: 1, text: 'English', value: 'en', imgUrl: 'url(../../../assets/i18n/flags/uk_small.png)', checked: false },
-            { id: 2, text: 'German', value: 'de', imgUrl: 'url(../../../assets/i18n/flags/ger_small.png)', checked: false }
+            { id: 2, text: 'German', value: 'de', imgUrl: 'url(../../../assets/i18n/flags/ger_small.png)', checked: false },
+            { id: 3, text: 'Croatian', value: 'hr', imgUrl: 'url(../../../assets/i18n/flags/ger_small.png)', checked: false }
         ];
     }
 

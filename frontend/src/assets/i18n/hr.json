@@ -1,14 +1,16 @@
 {
-    "MAIN": {
-
-    },
+    "MAIN": {},
     "TASK": {
-
+        "no_tasks_msg": "Hura! Nemas dodjeljenih zadataka!"
+    },
+    "LANGUAGE": {
+        "title": "Izaberite jezik"
     },
     "HEADER": {
-
+        "language": "Jezik",
+        "admin": "Admin",
+        "sign_up": "Kreiraj racun",
+        "log_in": "Prijavi se"
     },
-    "FOOTER": {
-        
-    }
+    "FOOTER": {}
 }

@@ -3,8 +3,14 @@
     "TASK": {
         "no_tasks_msg": "Hooray! You have no tasks!"
     },
+    "LANGUAGE": {
+        "title": "Select Language"
+    },
     "HEADER": {
-        "language": "Language"
+        "language": "Language",
+        "admin": "Admin",
+        "sign_up": "Sign up",
+        "log_in": "Log in"
     },
     "FOOTER": {}
 }

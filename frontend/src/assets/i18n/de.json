@@ -3,10 +3,16 @@
 
     },
     "TASK": {
-
+        "no_tasks_msg": "Hurra! Du hast keine Aufgaben!"
+    },
+    "LANGUAGE": {
+        "title": "Sprache auswählen"
     },
     "HEADER": {
-        "language": "Sprache"
+        "language": "Sprache",
+        "admin": "Admin",
+        "sign_up": "Anmelden",
+        "log_in": "Einloggen"
     },
     "FOOTER": {
         

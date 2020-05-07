@@ -6,9 +6,19 @@ html {
 }
 
 // TODO - replace
+// html,
+// body {
+//   height: 100%;
+// }
+
 html,
 body {
-  height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    margin-top: auto;
 }
 
 // ***** TASKS *****
@@ -17,6 +27,8 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  // to push the footer to bottom as bulma doesn't do it
+  height: calc(100vh - 96px);
 }
 
 .tasks-base {

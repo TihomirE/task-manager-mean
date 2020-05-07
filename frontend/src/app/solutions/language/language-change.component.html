@@ -1,5 +1,10 @@
-<div class="list is-hoverable" *ngFor="let lng of languages">
-    <a class="list-item" (click)="changeLanguage(lng)">
+<div class="language-container">
+  <h1 class="title has-text-white">
+    {{ 'LANGUAGE.title' | translate }}
+  </h1>
+  <div class="list is-hoverable" *ngFor="let lng of languages">
+    <a class="list-item language-item" (click)="changeLanguage(lng)">
       {{lng.text}}
     </a>
+</div>
 </div>
