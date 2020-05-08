@@ -2,12 +2,12 @@
     <div *ngIf="taskList.length < 1" class="msg-container">
         <article class="message is-warning msg-container">
             <div class="message-header msg-header">
-                <p>Hooray! You have no tasks!</p>
+                <p>{{ 'TASK.no_tasks_msg' | translate }}</p>
             </div>
             <div class="message-body">
                 <div class="buttons are-medium btn-position">
-                    <button class="button is-link is-outlined">+ New Task</button>
-                    <button class="button is-link is-outlined">View completed</button>
+                    <button class="button is-link is-outlined">{{ 'TASK.new_task_btn' | translate }}</button>
+                    <button class="button is-link is-outlined">{{ 'TASK.view_completed_btn' | translate }}</button>
                 </div>
             </div>
         </article>
@@ -19,9 +19,9 @@
             <div class="has-background-white"
                 [ngClass]="{'tasks-list': showTask, 'tasks-task-active': showTaskActive, 'task-details-actions-active': showActionActive}">
                 <div style="display: flex;">
-                    <h1 class="title task-title has-text-danger" style="width: 60%;">Tasks</h1>
-                    <button class="button is-primary has-text-white" (click)="createNewTask()" style="width: 40%;">+ New
-                        Task</button>
+                    <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.tasks_title' | translate }}</h1>
+                    <button class="button is-primary has-text-white" (click)="createNewTask()" style="width: 40%;">
+                        {{ 'TASK.new_task_btn' | translate }}</button>
                 </div>
 
                 <div class="list-menu" *ngFor="let task of taskList">

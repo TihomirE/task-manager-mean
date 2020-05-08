@@ -1,7 +1,19 @@
 {
     "MAIN": {},
     "TASK": {
-        "no_tasks_msg": "Hooray! You have no tasks!"
+        "no_tasks_msg": "Hooray! You have no tasks!",
+        "tasks_title": "Tasks",
+        "new_task_btn": "+ New Task",
+        "view_completed_btn": "View completed",
+
+        "DETAILS": {
+            "title": "Details",
+            "show_actions_btn": "Show actions"
+        },
+
+        "ACTIONS": {
+            "title": "Actions"
+        }
     },
     "LANGUAGE": {
         "title": "Select Language"

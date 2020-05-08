@@ -1,7 +1,19 @@
 {
     "MAIN": {},
     "TASK": {
-        "no_tasks_msg": "Hura! Nemas dodjeljenih zadataka!"
+        "no_tasks_msg": "Hura! Nemaš dodjeljenih zadataka!",
+        "tasks_title": "Zadaci",
+        "new_task_btn": "+ Novi Zadatak",
+        "view_completed_btn": "Pogledaj dovršene",
+
+        "DETAILS": {
+            "title": "Detalji",
+            "show_actions_btn": "Prikaži radnje"
+        },
+
+        "ACTIONS": {
+            "title": "Radnje"
+        }
     },
     "LANGUAGE": {
         "title": "Izaberite jezik"
@@ -9,7 +21,7 @@
     "HEADER": {
         "language": "Jezik",
         "admin": "Admin",
-        "sign_up": "Kreiraj racun",
+        "sign_up": "Kreiraj račun",
         "log_in": "Prijavi se"
     },
     "FOOTER": {}

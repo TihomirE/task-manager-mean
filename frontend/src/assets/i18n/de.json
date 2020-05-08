@@ -3,7 +3,19 @@
 
     },
     "TASK": {
-        "no_tasks_msg": "Hurra! Du hast keine Aufgaben!"
+        "no_tasks_msg": "Hurra! Du hast keine Aufgaben!",
+        "tasks_title": "Aufgaben",
+        "new_task_btn": "+ Neue Aufgabe",
+        "view_completed_btn": "Ansicht abgeschlossen",
+
+        "DETAILS": {
+            "title": "Einzelheiten",
+            "show_actions_btn": "Aktionen anzeigen"
+        },
+
+        "ACTIONS": {
+            "title": "Aktionen"
+        }
     },
     "LANGUAGE": {
         "title": "Sprache auswählen"
