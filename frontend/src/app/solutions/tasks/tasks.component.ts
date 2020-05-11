@@ -18,6 +18,7 @@ export class TasksComponent implements OnInit {
   showActionActive: boolean;
   taskSelected: boolean;
   actionsSelected: boolean;
+  hideActions: boolean;
 
   constructor(private taskService: TaskService) { }
 
@@ -42,21 +43,38 @@ export class TasksComponent implements OnInit {
     this.selectedTask = task;
     // TODO - get actions for task from server (and pass them to actions component)
 
-    this.taskSelected = true;
     this.showTask = false;
     this.showTaskActive = true;
     this.showActionActive = false;
+    // this.actionsSelected = false;
+
+    this.hideActions = true;
+
+    setTimeout(() => {
+      this.actionsSelected = false;
+    }, 900);
+
+    setTimeout(() => {
+      this.taskSelected = true;
+      // this.actionsSelected = false;
+    }, 1000);
   }
 
   showActions() {
-    this.actionsSelected = true;
+    // this.actionsSelected = true;
     this.showTask = false;
     this.showTaskActive = false;
     this.showActionActive = true;
+    this.hideActions = false;
+
+    setTimeout(() => {
+      this.actionsSelected = true;
+    }, 1000);
   }
 
   ngOnInit(): void {
     this.getTasks();
+    this.hideActions = true;
   }
 
 }

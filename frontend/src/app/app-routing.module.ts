@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
-import { TasksComponent } from './solutions/tasks/tasks.component';
-
 
 const routes: Routes = [
   {

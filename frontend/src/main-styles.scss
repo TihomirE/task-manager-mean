@@ -13,12 +13,12 @@ html {
 
 html,
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 // ***** TASKS *****
@@ -41,33 +41,45 @@ footer {
 
 .tasks-list {
   @extend .tasks-base;
-
   width: 75%;
+  transition: width 1s linear;
+
+  &.task-active {
+    width: 50%;
+  }
+
+  &.actions-active {
+    width: 35%;
+  }
 }
 
-.tasks-task-active {
-  @extend .tasks-base;
+.task-details {
+  width: 30%;
+  transition: 1s linear;
+  // transition-delay: 0.2s;
+  
+  &.active {
+    width: 50%;
+  }
 
-  // transition: box-shadow 0.2s ease, transform 0.2s ease;
-  width: 50%;
+  &.actions-active {
+    width: 35%;
+  }
 }
 
-.tasks-actions-active {
-  width: 35%;
-}
-
-.task-details-active {
-  width: 50%;
-}
-
-.task-details-actions-active {
-  @extend .tasks-base;
-
-  width: 35%;
-}
 
 .actions-list {
-  width: 30%;
+  width: 10%;
+  transition: 1s linear;
+  // transition-delay: 0.2s;
+
+  &.active {
+    width: 30%;
+  }
+
+  &.deselected {
+    opacity: 0.2;
+  }
 }
 
 .task-title {

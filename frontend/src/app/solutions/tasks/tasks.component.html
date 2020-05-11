@@ -16,8 +16,8 @@
     <div *ngIf="taskList.length > 0">
         <div class="tasks-container">
 
-            <div class="has-background-white"
-                [ngClass]="{'tasks-list': showTask, 'tasks-task-active': showTaskActive, 'task-details-actions-active': showActionActive}">
+            <div class="has-background-white tasks-list"
+                [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div style="display: flex;">
                     <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.tasks_title' | translate }}</h1>
                     <button class="button is-primary has-text-white" (click)="createNewTask()" style="width: 40%;">
@@ -35,12 +35,12 @@
 
             </div>
 
-            <div *ngIf="taskSelected" [ngClass]="{'task-details-active': showTaskActive, 'tasks-actions-active': showActionActive}">
+            <div *ngIf="taskSelected" class="task-details" [ngClass]="{'active': showTaskActive, 'actions-active': showActionActive}">
                 <app-task-details [task]="selectedTask" (actionsEmitter)="showActions()"></app-task-details>
             </div>
 
 
-            <div *ngIf="showActionActive" class="actions-list">
+            <div *ngIf="actionsSelected" class="actions-list" [ngClass]="{'active': showActionActive, 'deselected': hideActions}">
                 <app-task-actions></app-task-actions> <!--  [actions]="selectedTaskActions" -->
             </div>
 
