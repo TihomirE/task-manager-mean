@@ -56,14 +56,17 @@ footer {
 .task-details {
   width: 30%;
   transition: 1s linear;
-  // transition-delay: 0.2s;
+  // transition-delay: 0.5s;
+  // opacity: 0.2;
   
   &.active {
     width: 50%;
+    // opacity: 1;
   }
 
   &.actions-active {
     width: 35%;
+    // opacity: 1;
   }
 }
 

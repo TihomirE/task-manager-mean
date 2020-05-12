@@ -1,6 +1,6 @@
 <div class="tasks-base has-background-white">
     <h1 class="title task-title has-text-danger">{{ 'TASK.DETAILS.title' | translate }}</h1>
-    <h3>{{ task.title }}</h3>
-    <span>This will be tasks details (full description, status, options etc)</span>
+    <h2>{{ task.title }}</h2>
+    <h3>{{ task.description | nullStringLength}}</h3>
     <button class="button is-primary has-text-white" (click)="showActions()" style="width: 40%;">{{ 'TASK.DETAILS.show_actions_btn' | translate }}</button>
 </div>

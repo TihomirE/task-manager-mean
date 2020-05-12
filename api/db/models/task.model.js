@@ -6,6 +6,12 @@ const TaskSchema = new mongoose.Schema({
         required: true,
         minlength: 1,
         trim: true
+    },
+    description: {
+        type: String,
+        required: false,
+        minlength: 1,
+        trim: true
     }
     // TODO - create soft delete
 })

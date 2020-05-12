@@ -9,6 +9,7 @@ import { WebRequestService } from './core/request/web-request.service';
 import { LanguageService } from './core/language/language.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HelpersModule } from './core/helpers/helpers.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -30,7 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
+    })
   ],
   providers: [WebRequestService, LanguageService],
   bootstrap: [AppComponent]

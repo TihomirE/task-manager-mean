@@ -42,9 +42,8 @@ export class TasksComponent implements OnInit {
   selectTask(task: ITask) {
     this.selectedTask = task;
     // TODO - get actions for task from server (and pass them to actions component)
-
-    this.showTask = false;
     this.showTaskActive = true;
+    this.showTask = false;
     this.showActionActive = false;
     // this.actionsSelected = false;
 
@@ -52,11 +51,15 @@ export class TasksComponent implements OnInit {
 
     setTimeout(() => {
       this.actionsSelected = false;
+
     }, 900);
 
     setTimeout(() => {
       this.taskSelected = true;
-      // this.actionsSelected = false;
+      // setTimeout(() => {
+      //   this.showTaskActive = true;
+      //   // this.actionsSelected = false;
+      // }, 500);
     }, 1000);
   }
 
