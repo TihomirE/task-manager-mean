@@ -2,5 +2,7 @@
     <h1 class="title task-title has-text-danger">{{ 'TASK.DETAILS.title' | translate }}</h1>
     <h2>{{ task.title }}</h2>
     <h3>{{ task.description | nullStringLength}}</h3>
-    <button class="button is-primary has-text-white" (click)="showActions()" style="width: 40%;">{{ 'TASK.DETAILS.show_actions_btn' | translate }}</button>
+    <div style="display:flex; justify-content: flex-end;">
+        <show-actions-btn (showActionsEmitter)="showActions()"></show-actions-btn>
+    </div>
 </div>

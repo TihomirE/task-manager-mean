@@ -20,8 +20,7 @@
                 [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div style="display: flex;">
                     <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.tasks_title' | translate }}</h1>
-                    <button class="button is-primary has-text-white" (click)="createNewTask()" style="width: 40%;">
-                        {{ 'TASK.new_task_btn' | translate }}</button>
+                    <new-task-btn (creatNewTaskEmitter)="createNewTask()"></new-task-btn>
                 </div>
 
                 <div class="list-menu" *ngFor="let task of taskList">
