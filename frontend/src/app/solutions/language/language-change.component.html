@@ -1,10 +1,15 @@
 <div class="language-container">
-  <h1 class="title has-text-white">
-    {{ 'LANGUAGE.title' | translate }}
-  </h1>
-  <div class="list is-hoverable" *ngFor="let lng of languages">
-    <a class="list-item language-item" (click)="changeLanguage(lng)">
-      {{lng.text}}
-    </a>
-</div>
+  <div class="has-background-white language-main">
+    <div class="title-container">
+      <h1 class="title language-title has-text-danger">
+        {{ 'LANGUAGE.title' | translate }}
+      </h1>
+    </div>
+    <div class="list-menu" *ngFor="let lng of languages">
+      <a class="list-menu-item" (click)="changeLanguage(lng)"
+        [ngClass]="{'is-active': lng.checked == true}">
+        {{lng.text}}
+      </a>
+    </div>
+  </div>
 </div>

@@ -13,12 +13,13 @@ export class TasksComponent implements OnInit {
   selectedTask: ITask;
 
   // TODO - refactor to enum, _tasksShowHelper
-  showTask: boolean;
+  // showTask: boolean;
   showTaskActive: boolean;
   showActionActive: boolean;
   taskSelected: boolean;
   actionsSelected: boolean;
   hideActions: boolean;
+  showProgress: boolean;
 
   constructor(private taskService: TaskService) { }
 
@@ -30,12 +31,14 @@ export class TasksComponent implements OnInit {
   }
 
   getTasks() {
+    this.showProgress = true;
     this.taskService.getTasks().subscribe(
       (result: ITask[]) => {
         this.taskList = result;
-        if (this.taskList.length > 0) {
-          this.showTask = true;
-        }
+        // setTimeout(() => {
+        //   this.showProgress = false;
+        // }, 2000);
+        this.showProgress = false;
       });
   }
 
@@ -43,10 +46,7 @@ export class TasksComponent implements OnInit {
     this.selectedTask = task;
     // TODO - get actions for task from server (and pass them to actions component)
     this.showTaskActive = true;
-    this.showTask = false;
     this.showActionActive = false;
-    // this.actionsSelected = false;
-
     this.hideActions = true;
 
     setTimeout(() => {
@@ -56,16 +56,10 @@ export class TasksComponent implements OnInit {
 
     setTimeout(() => {
       this.taskSelected = true;
-      // setTimeout(() => {
-      //   this.showTaskActive = true;
-      //   // this.actionsSelected = false;
-      // }, 500);
     }, 1000);
   }
 
   showActions() {
-    // this.actionsSelected = true;
-    this.showTask = false;
     this.showTaskActive = false;
     this.showActionActive = true;
     this.hideActions = false;

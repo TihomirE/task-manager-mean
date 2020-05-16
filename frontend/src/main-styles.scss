@@ -1,5 +1,6 @@
 // for global styles
 @import "./theme/variables";
+@import "./theme/list";
 
 html {
   background: linear-gradient(to right top, $blue, $cyan);
@@ -21,25 +22,43 @@ footer {
   margin-top: auto;
 }
 
-// ***** TASKS *****
+// ***** GENERAL *****
 
-.tasks-container {
+.mainContainer {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   // to push the footer to bottom as bulma doesn't do it
   height: calc(100vh - 96px);
 }
 
-.tasks-base {
+.progress-container {
+  @extend .mainContainer;
+  padding: 25vh 15vw 0 15vw;
+}
+
+.base {
   display: flex;
   flex-direction: column;
   padding: 32px;
   border-radius: 8px;
+}
+
+// **********
+
+// ***** TASKS *****
+
+.tasks-container {
+  @extend .mainContainer;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tasks-base {
+  @extend .base;
+
   margin: 5px;
 }
 
-.tasks-list {
+.tasks-main {
   @extend .tasks-base;
   width: 75%;
   transition: width 1s linear;
@@ -58,7 +77,7 @@ footer {
   transition: 1s linear;
   // transition-delay: 0.5s;
   // opacity: 0.2;
-  
+
   &.active {
     width: 50%;
     // opacity: 1;
@@ -69,7 +88,6 @@ footer {
     // opacity: 1;
   }
 }
-
 
 .actions-list {
   width: 10%;
@@ -115,3 +133,39 @@ footer {
 }
 
 // **********
+
+// ***** LANGUAGE *****
+
+.language-base {
+  @extend .base;
+
+  padding: 5vh 5vw;
+}
+
+.language-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 24px;
+  // to push the footer to bottom as bulma doesn't do it
+  height: calc(100vh - 96px);
+
+  .language-main {
+    @extend .language-base;
+    width: 85vw;
+
+  }
+}
+
+.title-container {
+  width: 75%;
+  margin-bottom: 5vh;
+  border-bottom: solid 1px $danger;
+
+  .language-title {
+    font-family: "Papyrus";
+    text-transform: uppercase;
+    font-size: 20px !important;
+  }
+}

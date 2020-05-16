@@ -1,4 +1,4 @@
-<div *ngIf="taskList">
+<div *ngIf="!showProgress">
     <div *ngIf="taskList.length < 1" class="msg-container">
         <article class="message is-warning msg-container">
             <div class="message-header msg-header">
@@ -16,7 +16,7 @@
     <div *ngIf="taskList.length > 0">
         <div class="tasks-container">
 
-            <div class="has-background-white tasks-list"
+            <div class="has-background-white tasks-main"
                 [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div style="display: flex;">
                     <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.tasks_title' | translate }}</h1>
@@ -24,9 +24,6 @@
                 </div>
 
                 <div class="list-menu" *ngFor="let task of taskList">
-                    <!-- <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
-                  <p>{{ list.title }}</p>
-                </a> -->
                     <a class="list-menu-item" (click)="selectTask(task)"
                         [ngClass]="{'is-active': task == selectedTask}">
                         {{task.title}}</a>
@@ -46,4 +43,8 @@
         </div>
 
     </div>
+</div>
+
+<div *ngIf="showProgress" class="progress-container">
+    <progress class="progress is-small is-primary" max="100"></progress>
 </div>

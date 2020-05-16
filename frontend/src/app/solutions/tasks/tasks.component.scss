@@ -13,33 +13,3 @@
         justify-content: space-around;
     }
 }
-
-.list-menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    flex-grow: 1; 
-
-    .list-menu-item {
-        display: flex;
-
-        align-items: center;
-        padding: 10px 15px;
-        border-radius: 5px;
-
-        width: 100%;
-        color: #5f5f5f;
-        margin-bottom: 5px;
-        background: $light;
-
-        &:hover {
-            background: lightgrey;
-        }
-
-        &.is-active {
-            background-color: #cff8ef;
-            color: $cyan;
-            font-weight: 600;
-        }
-    }
-}
