@@ -13,6 +13,8 @@ export class AppComponent {
   defaultSelectedLanguage: string;
   // languageChangeSubscription: Subscription;
 
+  // TODO - replace icons automatically added by PWA > assets/icons and update manifest.webmanifest
+
   constructor(private languageService: LanguageService) {
     this.initializeApp();
     // this.languageChangeSubscription = this.languageService.languageChangeStartListener().subscribe(value => {
