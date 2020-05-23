@@ -19,18 +19,18 @@
             <div class="tasks-main"
                 [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div class="has-background-white tasks-base">
-                    <div style="display: flex;">
-                        <h1 class="title task-title has-text-danger" style="width: 60%;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h1 class="title task-title has-text-danger">
                             {{ 'TASK.tasks_title' | translate }}</h1>
                         <new-task-btn (creatNewTaskEmitter)="createNewTask()"></new-task-btn>
                     </div>
 
-                    <div class="list-menu" *ngFor="let task of taskList">
+                    <!-- <div class="list-menu" *ngFor="let task of taskList">
                         <a class="list-menu-item" (click)="selectTask(task)"
                             [ngClass]="{'is-active': task == selectedTask}">
                             {{task.title}}</a>
-                    </div>
-                    <!-- <app-tasks-list [task-list]="task-list" (selectTaskEmitter)="selectTask(task)"></app-tasks-list> -->
+                    </div> -->
+                    <app-task-list [taskList]="taskList" [selectedTask]="selectedTask" (selectTaskEmitter)="selectTask($event)"></app-task-list>
                 </div>
             </div>
 
