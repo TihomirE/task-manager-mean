@@ -1,0 +1,5 @@
+<div class="list-menu" *ngFor="let task of taskList">
+    <a class="list-menu-item" (click)="selectTask(task)"
+        [ngClass]="{'is-active': task == selectedTask}">
+        {{task.title}}</a>
+</div>

@@ -2,6 +2,10 @@
 @import "./theme/variables";
 @import "./theme/list";
 
+// * {
+//   margin: 0px;
+// }
+
 html {
   background: linear-gradient(to right top, $blue, $cyan);
 }
@@ -47,9 +51,23 @@ footer {
 // ***** TASKS *****
 
 .tasks-container {
-  @extend .mainContainer;
+  // @extend .mainContainer;
+  display: flex;
+  // to push the footer to bottom as bulma doesn't do it
+  height: calc(100vh - 96px);
+  width: 100%;
+  padding: 8px;
+  margin: 2px;
+
   align-items: flex-start;
   justify-content: flex-start;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .tasks-container {
+    flex-direction: row;
+  }
 }
 
 .tasks-base {
@@ -59,47 +77,73 @@ footer {
 }
 
 .tasks-main {
-  @extend .tasks-base;
-  width: 75%;
-  transition: width 1s linear;
-
-  &.task-active {
-    width: 50%;
-  }
-
-  &.actions-active {
-    width: 35%;
-  }
+  width: 100%;
+  // padding: 8px;
+  // margin: 2px;
+  border-radius: 4px;
 }
 
 .task-details {
-  width: 30%;
-  transition: 1s linear;
-  // transition-delay: 0.5s;
-  // opacity: 0.2;
-
-  &.active {
-    width: 50%;
-    // opacity: 1;
-  }
-
-  &.actions-active {
-    width: 35%;
-    // opacity: 1;
-  }
+  width: 100%;
+  // padding: 8px;
+  // margin: 2px;
+  border-radius: 4px;
 }
 
 .actions-list {
-  width: 10%;
-  transition: 1s linear;
-  // transition-delay: 0.2s;
+  width: 100%;
+}
 
-  &.active {
-    width: 30%;
+@media only screen and (min-width: 768px) {
+  .tasks-main {
+    // @extend .tasks-base;
+    display: flex;
+    flex-direction: column;
+    // padding: 32px;
+    border-radius: 8px;
+    // margin: 5px;
+
+    width: 75%;
+    transition: width 1s linear;
+
+    &.task-active {
+      width: 50%;
+    }
+
+    &.actions-active {
+      width: 35%;
+    }
   }
 
-  &.deselected {
-    opacity: 0.2;
+  .task-details {
+    width: 30%;
+    transition: 1s linear;
+    // transition-delay: 0.5s;
+    // opacity: 0.2;
+
+    &.active {
+      width: 50%;
+      // opacity: 1;
+    }
+
+    &.actions-active {
+      width: 35%;
+      // opacity: 1;
+    }
+  }
+
+  .actions-list {
+    width: 10%;
+    transition: 1s linear;
+    // transition-delay: 0.2s;
+
+    &.active {
+      width: 30%;
+    }
+
+    &.deselected {
+      opacity: 0.2;
+    }
   }
 }
 
@@ -154,7 +198,6 @@ footer {
   .language-main {
     @extend .language-base;
     width: 85vw;
-
   }
 }
 
