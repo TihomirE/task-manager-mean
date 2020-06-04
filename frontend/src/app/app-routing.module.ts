@@ -7,6 +7,7 @@ const routes: Routes = [
     path: '', component: MainLayoutComponent,
     children: [
       { path: '', redirectTo: 'app', pathMatch: 'full' },
+      { path: 'auth', loadChildren: () => import('./solutions/auth/auth.module').then(m => m.AuthModule) },
       { path: 'app', loadChildren: () => import('./solutions/tasks/tasks.module').then(m => m.TasksModule) },
       { path: 'language', loadChildren: () => import('./solutions/language/language-change.module').then(m => m.LanguageChangeModule) }
     ]

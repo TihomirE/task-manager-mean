@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { ShowActionsBtnComponent } from './buttons/tasks/show-actions-btn.component';
 import { AuthNavbarBtnsComponent } from './buttons/navbar/auth-navbar-btns.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { AuthNavbarBtnsComponent } from './buttons/navbar/auth-navbar-btns.compo
     ],
     imports: [
         CommonModule,
-        TranslateModule
+        TranslateModule,
+        RouterModule
     ],
     providers: [],
     exports: [

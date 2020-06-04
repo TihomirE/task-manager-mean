@@ -1,5 +1,83 @@
-<mxfile host="localhost" modified="2020-05-14T20:35:10.833Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.45.0 Chrome/78.0.3904.130 Electron/7.2.4 Safari/537.36" version="13.0.9" etag="PECQiZuTzTZKqqam_7zA">
-    <diagram id="biDH6sSqvXoEk5hqDHH8">
-        7VlLb+M2EP41BtpDC8mybOcY28n24AWC9RbtHmlpLBFLkQJF+bG/vkOJekuxk2oTYJHAcMThkBzOfPOSJ846On+SJA4/Cx/YZGr554mzmUyni/kcvzXhkhPmjiEEkvo5ya4IO/oDDNEy1JT6kDQYlRBM0bhJ9ATn4KkGjUgpTk22g2DNU2MSQIew8wjrUv+hvgpz6tK1KvpfQIOwONm2zExECmZDSELii1ON5DxMnLUUQuVP0XkNTOuu0Eu+7nFgthRMAle3LJjmC46EpeZuRi51KS6LIsb6Ec6448oX6T6bsXEgRcp98M3oFFIFu5h4evqEhkdaqCJmpsurWjgIGEkS85woKb7DWjAhsxOdubeE/QFnCKMBR5qHtwGcXB0oYwUjFxwPWpkLgFRwHlSCXaoWIQkiAiUvyGIWzIwxLs3hqTLtvDBgWDdrwUgMnIJy50rj+GCU3m8Ap2OALeFBqgHYNsQ42g4k8SkqZnw1TpdNPdrTriJLWl2R7gh6nHX0+CTFMQsTuPGeMqouWZjQYSFEFaN+LVaqeq3JqdRXZRlfCBKyaAHZSEKdP9vzSCgj2hfwmftalIwcx4yCXxxFMiFPsEf5jxROeVBSWqNT67d9qv9xofIT8Xuzqjh+n6ynk3vUDQZHx7ZKI9UgoXKn7HoQ/j0+9jtMgpihPECCW42+itgQ+nAlEBcHlsEppL4PvOP7g3A7iApqKNhj9tfn2kaQlVBKRGbxCKB0m5h0eyB51+fb0xEw6Q769jpD4FpEMdpEY+HFrj6Calru2hf3enUzRtgrMvlziQe4f6+TtUaJRhT1miEOzlT9q5Hyp2tG32ozm7MBUTa4FAOOgtYW6eG3+ly1LBtdGkgEv1MXtJSNFxCp9KAR3BWRAagaJromqencfSZCSmBE0WNTiD47mBOeBM0iTZHo7KbJnXbkzYU3q+plQ3ujeWsjq7VRfuXORmhPcqmxxZohGRbYaaXmAjdDctkL9zl+fMglqDBa2uA22NqDLr0DeaTea7L2GBXM/D19+YYi8qov/3S/rDuhPaDNt/HCNqjtxS/mha77k72wW+z9nWRF2VdJeILGAWw5U2bqupK4FcTHWkOn9jmJtOvl33WeJxrrOuwgsQhBxpnFg/Mfqpjt4PoXL8BqHjpGlJq9YzFmd6uxWodwSLmnqODE9AkHIRv9QdUz5LU+8TxIkrw1EClKKtKqiMce4AMoo6azuxuR0o6krwHKfDDFI3VLk261npxohFABo8SdmdF68ULK/C25aHg4m0QR73sxWoVC0h/IT8qeHeO1Mm+7UIxeTFSLdnozc4yEBJc9FQq2W6TP5Nxg3JJEFQIKxkic0OqlToRJg/I+61pdMJmbbykvljfe7NSx5olIZ/2xGrt293IrRGxrdjVhfwFPoc2z3r7/OKfv3Ybdc1wBp+I0wtCJOKaSlVZk0gHmyzLhooPVBxSbJuFt8cdgqgdmhdMzOOhl2lLUI+zekJUOQkUg2GY8m1lF+WLuPxuMSIoosi+9xBQgKKi7wg+qca3rQHejE7i7sqsxfjS7xEjF8S6EZmABxPMJNKZvQ9a8H1mXpsmuIalt2tcEm2XHgJ9ARoR/2O/19nOnb2e/u4791lJgc/Bhwf9jwcXy7Sxod2NoN8Gbn0AODM6mjV31drRZBn+20Z3c2LC+V3Na5tF2ontxczq7stFAc3o9C+Kw+oEsZ69+ZXQe/gM=
+<mxfile host="" modified="2020-06-04T18:23:00.409Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.45.1 Chrome/78.0.3904.130 Electron/7.2.4 Safari/537.36" etag="nDBX0MMyN9og9aLm1KD8" version="13.1.3">
+    <diagram id="biDH6sSqvXoEk5hqDHH8" name="Page-1">
+        <mxGraphModel dx="1021" dy="493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;strokeColor=#6c8ebf;align=center;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="600" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Language" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;glass=0;gradientColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="120" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Provides ability to change language, currently there are three languages available and is applied to all web/view content (but not the DB content) &#10;" style="text;strokeColor=#6666FF;fillColor=none;spacing=5;spacingTop=5;whiteSpace=wrap;overflow=hidden;rounded=1;shadow=0;glass=0;fontColor=#FFFFFF;align=center;spacingBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="LanguageChangeComponent" style="rounded=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="240" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="350" as="sourcePoint"/>
+                        <mxPoint x="460" y="300" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="340" y="210"/>
+                            <mxPoint x="175" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="LanguageService" style="rounded=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="240" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="170" as="sourcePoint"/>
+                        <mxPoint x="460" y="300" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="340" y="210"/>
+                            <mxPoint x="555" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="Uses TranslateModule, TranslateLoader &amp;amp; TranslatePipe from @ngx-translate" style="text;strokeColor=#6666FF;fillColor=none;spacing=5;spacingTop=5;whiteSpace=wrap;overflow=hidden;rounded=1;shadow=0;glass=0;fontColor=#FFFFFF;align=center;spacingBottom=0;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="50" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Provides functionality for language change and access throughtout the app" style="text;strokeColor=#6666FF;fillColor=none;spacing=5;spacingTop=5;whiteSpace=wrap;overflow=hidden;rounded=1;shadow=0;glass=0;fontColor=#FFFFFF;align=center;spacingBottom=0;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="290" width="190" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Language List" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=0;rounded=1;swimlaneLine=1;glass=0;shadow=0;comic=0;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="290" width="190" height="104" as="geometry">
+                        <mxRectangle x="80" y="320" width="110" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="English" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
+                    <mxGeometry y="26" width="190" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="German" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
+                    <mxGeometry y="52" width="190" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Croatian" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
+                    <mxGeometry y="78" width="190" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="290" y="320" as="sourcePoint"/>
+                        <mxPoint x="440" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="Language .json files" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="470" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="18" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="450" y="410" as="sourcePoint"/>
+                        <mxPoint x="500" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Each language reads it's data from .json file located in assets/i18n" style="text;strokeColor=#6666FF;fillColor=none;spacing=5;spacingTop=5;whiteSpace=wrap;overflow=hidden;rounded=1;shadow=0;glass=0;fontColor=#FFFFFF;align=center;spacingBottom=0;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="520" width="190" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
     </diagram>
 </mxfile>
