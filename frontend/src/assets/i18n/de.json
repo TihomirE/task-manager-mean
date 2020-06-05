@@ -2,6 +2,13 @@
     "MAIN": {
 
     },
+    "AUTH": {
+        "LOGIN": {
+            "login_btn": "Einloggen",
+            "sign_up_btn": "Anmelden",
+            "sign_up_msg": "Sie haben noch keinen Account?"
+        }
+    },
     "TASK": {
         "no_tasks_msg": "Hurra! Du hast keine Aufgaben!",
         "tasks_title": "Aufgaben",

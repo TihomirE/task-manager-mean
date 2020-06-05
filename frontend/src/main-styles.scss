@@ -48,13 +48,28 @@ footer {
 
 // **********
 
+// ***** AUTH *****
+
+.auth-container {
+  @extend .base;
+  width: 60%;
+  margin: 16px;
+}
+
+.auth-base {
+  display: flex;
+  flex-direction: row;
+}
+
+// **********
+
 // ***** TASKS *****
 
 .tasks-container {
-  // @extend .mainContainer;
-  display: flex;
-  // to push the footer to bottom as bulma doesn't do it
-  height: calc(100vh - 96px);
+  @extend .mainContainer;
+  // display: flex;
+  // // to push the footer to bottom as bulma doesn't do it
+  // height: calc(100vh - 96px);
   width: 100%;
   padding: 8px;
   // margin: 2px;

@@ -1,5 +1,12 @@
 {
     "MAIN": {},
+    "AUTH": {
+        "LOGIN": {
+            "login_btn": "Prijava",
+            "sign_up_btn": "Kreiraj račun",
+            "sign_up_msg": "Još uvijek nemaš račun?"
+        }
+    },
     "TASK": {
         "no_tasks_msg": "Hura! Nemaš dodjeljenih zadataka!",
         "tasks_title": "Zadaci",

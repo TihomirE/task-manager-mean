@@ -1,5 +1,12 @@
 {
     "MAIN": {},
+    "AUTH": {
+        "LOGIN": {
+            "login_btn": "Login",
+            "sign_up_btn": "Sign up",
+            "sign_up_msg": "Don't have an account still?"
+        }
+    },
     "TASK": {
         "no_tasks_msg": "Hooray! You have no tasks!",
         "tasks_title": "Tasks",
