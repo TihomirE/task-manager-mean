@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './sign-up.component.html'
 })
 
+// Reactive forms used here
 export class SignUpComponent implements OnInit {
 
     constructor() { }

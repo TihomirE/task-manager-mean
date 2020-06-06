@@ -1,1 +1,16 @@
-Sign Up component
+<div class="has-background-white auth-container">
+    <div class="msg-container">
+        <article class="message is-warning msg-container">
+            <div class="message-header msg-header">
+                <p>{{ 'AUTH.LOGIN.sign_up_msg' | translate }}</p>
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-primary is-medium" [routerLink]="['/auth/sign-up']">
+                            {{ 'AUTH.LOGIN.sign_up_btn' | translate }}
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
