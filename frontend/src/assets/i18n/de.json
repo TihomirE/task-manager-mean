@@ -6,6 +6,7 @@
         "LOGIN": {
             "login_btn": "Einloggen",
             "sign_up_btn": "Anmelden",
+            "login_msg": "Sie haben bereits ein Konto?",
             "sign_up_msg": "Sie haben noch keinen Account?"
         }
     },

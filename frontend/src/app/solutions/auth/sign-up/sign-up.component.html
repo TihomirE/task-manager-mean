@@ -1,12 +1,75 @@
 <div class="has-background-white auth-container">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <p class="control">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="text" formControlName="firstName" placeholder="First name" required>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="text" formControlName="lastName" placeholder="Last name">
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="email"  formControlName="email" placeholder="Email" required>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                 <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="password"  formControlName="password" placeholder="Password" required>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="text" formControlName="city" placeholder="City">
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="text" formControlName="phone" placeholder="Phone">
+            </p>
+        </div>
+
+        <div class="field">
+            <p class="control">
+                <button class="button is-primary" type="submit" [disabled]="!signUpForm.valid">
+                    {{ 'AUTH.LOGIN.sign_up_btn' | translate }}
+                </button>
+            </p>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+<div class="has-background-white auth-container">
     <div class="msg-container">
         <article class="message is-warning msg-container">
             <div class="message-header msg-header">
-                <p>{{ 'AUTH.LOGIN.sign_up_msg' | translate }}</p>
+                <p>{{ 'AUTH.LOGIN.login_msg' | translate }}</p>
                 <div class="field">
                     <p class="control">
-                        <button class="button is-primary is-medium" [routerLink]="['/auth/sign-up']">
-                            {{ 'AUTH.LOGIN.sign_up_btn' | translate }}
+                        <button class="button is-primary is-medium" [routerLink]="['/auth/login']">
+                            {{ 'AUTH.LOGIN.login_btn' | translate }}
                         </button>
                     </p>
                 </div>
