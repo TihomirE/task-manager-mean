@@ -22,7 +22,7 @@
                     <div style="display: flex; justify-content: space-between;">
                         <h1 class="title task-title has-text-danger">
                             {{ 'TASK.tasks_title' | translate }}</h1>
-                        <new-task-btn (creatNewTaskEmitter)="createNewTask()"></new-task-btn>
+                        <new-task-btn (creatNewTaskEmitter)="toogleNewTaskModal()"></new-task-btn>
                     </div>
 
                     <!-- <div class="list-menu" *ngFor="let task of taskList">
@@ -53,3 +53,11 @@
 <div *ngIf="showProgress" class="progress-container">
     <progress class="progress is-small is-primary" max="100"></progress>
 </div>
+
+<div class="modal" [ngClass]="{'is-active': showNewTaskModal}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <new-task-component (taskCreatedEmitter)="taskCreatedEvent()"></new-task-component>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="toogleNewTaskModal()"></button>
+  </div>

@@ -1,5 +1,8 @@
 {
-    "MAIN": {},
+    "MAIN": {
+        "Submit": "Submit",
+        "Create": "Create"
+    },
     "AUTH": {
         "LOGIN": {
             "login_btn": "Login",

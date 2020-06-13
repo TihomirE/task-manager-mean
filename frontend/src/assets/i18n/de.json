@@ -1,6 +1,7 @@
 {
     "MAIN": {
-
+        "Submit": "Einreichen",
+        "Create": "Erstellen"
     },
     "AUTH": {
         "LOGIN": {

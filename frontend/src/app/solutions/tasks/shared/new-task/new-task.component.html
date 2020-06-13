@@ -1,0 +1,22 @@
+<div class="has-background-white auth-container" *ngIf="!showProgress">
+    <form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <p class="control">
+                <!-- TODO - set placeholder variable in component depending on selected language  -->
+                <input class="input" type="text" formControlName="title" placeholder="Title" required>
+            </p>
+        </div>
+        <!-- TODO - add description field -->
+        <div class="field">
+            <p class="control">
+                <button class="button is-primary" type="submit" [disabled]="!newTaskForm.valid">
+                    {{ 'MAIN.Create' | translate }}
+                </button>
+            </p>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="showProgress" class="progress-container">
+    <progress class="progress is-small is-primary" max="100"></progress>
+</div>

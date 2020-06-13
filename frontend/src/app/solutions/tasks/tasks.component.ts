@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TaskService } from 'src/app/core/tasks/task.service';
 import { ITask } from './interfaces/ITask';
+import { NewTaskComponent } from './shared/new-task/new-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -20,14 +21,29 @@ export class TasksComponent implements OnInit {
   actionsSelected: boolean;
   hideActions: boolean;
   showProgress: boolean;
+  showNewTaskModal: boolean;
+
+  @ViewChild(NewTaskComponent) private newTaskCmpnt: NewTaskComponent;
 
   constructor(private taskService: TaskService) { }
 
-  createNewTask() {
-    this.taskService.createTask('Testing').subscribe(
-      result => {
-        this.getTasks();
-      });
+  // createNewTask() {
+  //   // this.taskService.createTask('Testing').subscribe(
+  //   //   result => {
+  //   //     this.getTasks();
+  //   //   });
+  // }
+
+  toogleNewTaskModal() {
+    if (this.showNewTaskModal) {
+      this.newTaskCmpnt.resetForm();
+    }
+    this.showNewTaskModal = !this.showNewTaskModal;
+  }
+
+  taskCreatedEvent() {
+    this.getTasks();
+    this.toogleNewTaskModal();
   }
 
   getTasks() {
@@ -72,6 +88,7 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.getTasks();
     this.hideActions = true;
+    this.showNewTaskModal = false;
   }
 
 }

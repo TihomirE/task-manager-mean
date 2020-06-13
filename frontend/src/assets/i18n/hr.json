@@ -1,5 +1,8 @@
 {
-    "MAIN": {},
+    "MAIN": {
+        "Submit": "Podnesi",
+        "Create": "Kreiraj"
+    },
     "AUTH": {
         "LOGIN": {
             "login_btn": "Prijava",

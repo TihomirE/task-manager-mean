@@ -8,6 +8,7 @@ import { TaskService } from 'src/app/core/tasks/task.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HelpersModule } from 'src/app/core/helpers/helpers.module';
 import { TaskListComponent } from './list/task-list.component';
+import { TasksSharedModule } from './shared/tasks-shared.module';
 
 @NgModule({
     declarations: [TasksComponent, TaskListComponent, TaskDetailsComponent, TaskActionsComponent],
@@ -15,7 +16,8 @@ import { TaskListComponent } from './list/task-list.component';
         CommonModule,
         TasksRoutingModule,
         SharedModule,
-        HelpersModule
+        HelpersModule,
+        TasksSharedModule
     ],
     providers: [TaskService],
     exports: []
