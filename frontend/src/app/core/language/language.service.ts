@@ -9,7 +9,7 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
 })
 
 export class LanguageService {
-    selected = '';
+    public selected = '';
     languages = [];
     private lngChange = new Subject<string>();
 

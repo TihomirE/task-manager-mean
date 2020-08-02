@@ -9,7 +9,6 @@ import { WebRequestService } from './core/request/web-request.service';
 import { LanguageService } from './core/language/language.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HelpersModule } from './core/helpers/helpers.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 

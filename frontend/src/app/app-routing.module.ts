@@ -9,7 +9,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'app', pathMatch: 'full' },
       { path: 'auth', loadChildren: () => import('./solutions/auth/auth.module').then(m => m.AuthModule) },
       { path: 'app', loadChildren: () => import('./solutions/tasks/tasks.module').then(m => m.TasksModule) },
-      { path: 'language', loadChildren: () => import('./solutions/language/language-change.module').then(m => m.LanguageChangeModule) }
+      { path: 'language', loadChildren: () => import('./solutions/language/language-change.module').then(m => m.LanguageChangeModule) },
+      { path: 'admin', loadChildren: () => import('./solutions/admin/admin.module').then(m => m.AdminModule) }
     ]
   }
 ];

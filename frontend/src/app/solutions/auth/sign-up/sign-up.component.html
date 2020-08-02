@@ -2,20 +2,17 @@
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <div class="field">
             <p class="control">
-                <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="text" formControlName="firstName" placeholder="First name" required>
+                <input class="input" type="text" formControlName="firstName" placeholder={{formPlaceholders.firstName}} required>
             </p>
         </div>
         <div class="field">
             <p class="control">
-                <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="text" formControlName="lastName" placeholder="Last name">
+                <input class="input" type="text" formControlName="lastName" placeholder={{formPlaceholders.lastName}}>
             </p>
         </div>
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="email"  formControlName="email" placeholder="Email" required>
+                <input class="input" type="email"  formControlName="email" placeholder={{formPlaceholders.email}} required>
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -26,8 +23,7 @@
         </div>
         <div class="field">
             <p class="control has-icons-left">
-                 <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="password"  formControlName="password" placeholder="Password" required>
+                <input class="input" type="password"  formControlName="password" placeholder={{formPlaceholders.password}} required>
                 <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span>
@@ -35,14 +31,12 @@
         </div>
         <div class="field">
             <p class="control">
-                <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="text" formControlName="city" placeholder="City">
+                <input class="input" type="text" formControlName="city" placeholder={{formPlaceholders.city}}>
             </p>
         </div>
         <div class="field">
             <p class="control">
-                <!-- TODO - set placeholder variable in component depending on selected language  -->
-                <input class="input" type="text" formControlName="phone" placeholder="Phone">
+                <input class="input" type="text" formControlName="phone" placeholder={{formPlaceholders.phone}}>
             </p>
         </div>
 

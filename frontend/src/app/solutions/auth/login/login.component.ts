@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaceholderHelperService } from 'src/app/core/helpers/placeholder/placeholder-helper.service';
 
 @Component({
     selector: 'app-login-component',
@@ -11,14 +12,23 @@ export class LoginComponent implements OnInit {
     email: string;
     password: string;
 
-    constructor() { }
+    formPlaceholders = {} as {
+        email: string,
+        password: string
+    };
+
+    constructor(private placeholderHelperService: PlaceholderHelperService) { }
 
     login() {
         console.log(this.email + ' / ' + this.password);
     }
 
-    ngOnInit() {
+    setInitialLanguageVariables() {
+        this.formPlaceholders = this.placeholderHelperService.setLoginPlaceholders();
+    }
 
+    ngOnInit() {
+        this.setInitialLanguageVariables();
     }
 
 }
