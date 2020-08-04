@@ -1,7 +1,9 @@
 {
     "MAIN": {
         "Submit": "Submit",
-        "Create": "Create"
+        "Create": "Create",
+        "Title": "Title",
+        "Description": "Description"
     },
     "AUTH": {
         "LOGIN": {

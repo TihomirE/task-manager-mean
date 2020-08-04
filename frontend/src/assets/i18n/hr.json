@@ -1,7 +1,9 @@
 {
     "MAIN": {
         "Submit": "Podnesi",
-        "Create": "Kreiraj"
+        "Create": "Kreiraj",
+        "Title": "Naslov",
+        "Description": "Opis"
     },
     "AUTH": {
         "LOGIN": {

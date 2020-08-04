@@ -15,9 +15,9 @@ export class TaskService {
     return this.webReqService.get('tasks');
   }
 
-  createTask(title: string) {
+  createTask(task: any) {
     // send a web request to create a task
-    return this.webReqService.post('tasks', { title });
+    return this.webReqService.post('tasks', { task });
   }
 
 }

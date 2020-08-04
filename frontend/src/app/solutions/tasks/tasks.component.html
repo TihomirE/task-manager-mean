@@ -25,12 +25,8 @@
                         <new-task-btn (creatNewTaskEmitter)="toogleNewTaskModal()"></new-task-btn>
                     </div>
 
-                    <!-- <div class="list-menu" *ngFor="let task of taskList">
-                        <a class="list-menu-item" (click)="selectTask(task)"
-                            [ngClass]="{'is-active': task == selectedTask}">
-                            {{task.title}}</a>
-                    </div> -->
                     <app-task-list [taskList]="taskList" [selectedTask]="selectedTask" (selectTaskEmitter)="selectTask($event)"></app-task-list>
+                
                 </div>
             </div>
 

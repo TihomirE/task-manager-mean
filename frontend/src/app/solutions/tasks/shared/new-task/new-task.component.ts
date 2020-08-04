@@ -12,7 +12,8 @@ export class NewTaskComponent implements OnInit {
   showProgress: boolean;
 
   newTaskForm = this.fb.group({
-    title: ['', Validators.required]
+    title: ['', Validators.required],
+    description: ['']
   });
 
   @Output() taskCreatedEmitter = new EventEmitter();
@@ -25,7 +26,7 @@ export class NewTaskComponent implements OnInit {
 
   createNewTask() {
     this.showProgress = true;
-    this.taskService.createTask(this.newTaskForm.value.title).subscribe(
+    this.taskService.createTask(this.newTaskForm.value).subscribe(
       result => {
         this.showProgress = false;
         // TODO - error handling!

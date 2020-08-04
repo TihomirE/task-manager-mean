@@ -10,50 +10,27 @@ import { LanguageService } from 'src/app/core/language/language.service';
 export class LanguageChangeComponent implements OnInit {
     languages = [];
     defaultSelectedLanguage: string;
-    // title: string;
 
     constructor(
-        private languageService: LanguageService,
-        // private titleChangeSrvc: TitleChageHelperService
+        private languageService: LanguageService
     ) { }
 
+    // function for language change
     changeLanguage(lng) {
+        // set selected language to current
         this.languageService.setLanguage(lng.value);
         this.languageService.languageChangeStart(lng.value);
 
-        // TODO - use to show/hide checkbox and apply class for the selected language in the view
+        // go through all languages and set the flag so the class can be aplied in the view
         this.languages.forEach(element => {
-            if (element.value === lng.value) {
-                element.checked = true;
-            } else {
-                element.checked = false;
-            }
+            element.value === lng.value ? element.checked = true : element.checked = false;
         });
-        // this.titleCheck(lng.value);
     }
 
-    // titleCheck(lng: string) {
-    //     if (lng === 'de') {
-    //         this.title = 'Sprache auswählen';
-    //     } else {
-    //         this.title = 'Select Language';
-    //     }
-    //     // this.titleChangeSrvc.titleChangeStart(this.title);
-    // }
-
     ngOnInit() {
+        // set initial needed variables
         this.languages = this.languageService.getLanguages();
         this.defaultSelectedLanguage = this.languageService.selected;
-        // this.titleCheck(this.defaultSelectedLanguage);
-        // this.titleChangeSrvc.titleChangeStart(this.title);
-
-        // this.languages.forEach(element => {
-        //     if (element.value === this.defaultSelectedLanguage) {
-        //         element.checked = true;
-        //     } else {
-        //         element.checked = false;
-        //     }
-        // });
     }
 
 }

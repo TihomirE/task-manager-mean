@@ -57,10 +57,13 @@ app.get('/tasks', (req, res) => {
 */
 app.post('/tasks', (req, res) => {
     // create new task and return the new task document (with id) - format JSON request body
-    let title = req.body.title;
+    let title = req.body.task.title;
+    let description = req.body.task.description;
+    debugger;
 
     let newTask = new Task({
-        title
+        title,
+        description
     });
     newTask.save().then((taskDoc) => {
         res.send(taskDoc);

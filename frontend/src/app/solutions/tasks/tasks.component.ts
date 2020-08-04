@@ -65,9 +65,9 @@ export class TasksComponent implements OnInit {
     this.showActionActive = false;
     this.hideActions = true;
 
+    // using timeouts for now so the transition animations look smoother
     setTimeout(() => {
       this.actionsSelected = false;
-
     }, 900);
 
     setTimeout(() => {
