@@ -15,7 +15,6 @@
 
     <div *ngIf="taskList.length > 0">
         <div class="tasks-container">
-
             <div class="tasks-main"
                 [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div class="has-background-white tasks-base">
@@ -24,6 +23,11 @@
                             {{ 'TASK.tasks_title' | translate }}</h1>
                         <new-task-btn (creatNewTaskEmitter)="toogleNewTaskModal()"></new-task-btn>
                     </div>
+                    
+                    <label class="checkbox">
+                        <input type="checkbox" (change)="optionsCheckChanged()" [checked]="showOptions">
+                        {{ 'TASK.DETAILS.show_options_check' | translate }}
+                      </label>
 
                     <app-task-list [taskList]="taskList" [selectedTask]="selectedTask" (selectTaskEmitter)="selectTask($event)"></app-task-list>
                 

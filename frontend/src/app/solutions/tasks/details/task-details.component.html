@@ -4,5 +4,6 @@
     <h3>{{ task.description | nullStringLength}}</h3>
     <div style="display:flex; justify-content: flex-end;">
         <show-actions-btn (showActionsEmitter)="showActions()"></show-actions-btn>
+        <set-completed-btn [disabled]="disableComplete" (setCompletedEmitter)="setTaskCompleted()" style="margin-left: 5px;"></set-completed-btn>
     </div>
 </div>

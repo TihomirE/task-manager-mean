@@ -21,7 +21,9 @@
 
         "DETAILS": {
             "title": "Detalji",
-            "show_actions_btn": "Prikaži radnje"
+            "show_options_check": "Prikaži opcije",
+            "show_actions_btn": "Prikaži radnje",
+            "set_completed_btn": "Završen"
         },
 
         "ACTIONS": {

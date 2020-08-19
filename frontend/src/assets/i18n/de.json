@@ -21,7 +21,9 @@
 
         "DETAILS": {
             "title": "Einzelheiten",
-            "show_actions_btn": "Aktionen anzeigen"
+            "show_options_check": "Optionen anzeigen",
+            "show_actions_btn": "Aktionen anzeigen",
+            "set_completed_btn": "Abgeschlossen"
         },
 
         "ACTIONS": {

@@ -1,4 +1,4 @@
-<div class="has-background-white auth-container" *ngIf="!showProgress">
+<div class="has-background-white" *ngIf="!showProgress">
     <form [formGroup]="newTaskForm" (ngSubmit)="onSubmit()">
         <div class="field">
             <p class="control">
@@ -7,7 +7,7 @@
         </div>
         <div class="field">
             <p class="control">
-                <textarea class="input" type="text" formControlName="description" placeholder="{{ 'MAIN.Description' | translate }}"></textarea>
+                <textarea class="input" type="text" formControlName="description" placeholder="{{ 'MAIN.Description' | translate }}" style="height: 25vh"></textarea>
             </p>
         </div>
         <!-- TODO - add description field -->

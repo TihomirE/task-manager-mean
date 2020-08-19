@@ -21,7 +21,9 @@
 
         "DETAILS": {
             "title": "Details",
-            "show_actions_btn": "Show actions"
+            "show_options_check": "Show options",
+            "show_actions_btn": "Show actions",
+            "set_completed_btn": "Completed"
         },
 
         "ACTIONS": {

@@ -9,6 +9,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { HelpersModule } from 'src/app/core/helpers/helpers.module';
 import { TaskListComponent } from './list/task-list.component';
 import { TasksSharedModule } from './shared/tasks-shared.module';
+import { StoreModule } from '@ngrx/store';
+import { tasksReducer } from './ngrx-state/tasks.reducer';
 
 @NgModule({
     declarations: [TasksComponent, TaskListComponent, TaskDetailsComponent, TaskActionsComponent],
@@ -17,7 +19,8 @@ import { TasksSharedModule } from './shared/tasks-shared.module';
         TasksRoutingModule,
         SharedModule,
         HelpersModule,
-        TasksSharedModule
+        TasksSharedModule,
+        StoreModule.forFeature('tasks', tasksReducer)
     ],
     providers: [TaskService],
     exports: []

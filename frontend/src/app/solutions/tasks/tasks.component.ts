@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TaskService } from 'src/app/core/tasks/task.service';
 import { ITask } from './interfaces/ITask';
 import { NewTaskComponent } from './shared/new-task/new-task.component';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-tasks',
@@ -22,10 +23,11 @@ export class TasksComponent implements OnInit {
   hideActions: boolean;
   showProgress: boolean;
   showNewTaskModal: boolean;
+  showOptions: boolean;
 
   @ViewChild(NewTaskComponent) private newTaskCmpnt: NewTaskComponent;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private store: Store<any>, private taskService: TaskService) { }
 
   // createNewTask() {
   //   // this.taskService.createTask('Testing').subscribe(
@@ -39,6 +41,11 @@ export class TasksComponent implements OnInit {
       this.newTaskCmpnt.resetForm();
     }
     this.showNewTaskModal = !this.showNewTaskModal;
+  }
+
+  optionsCheckChanged() {
+    this.store.dispatch(
+      { type: '[Tasks] Toggle Tasks Show Options' });
   }
 
   taskCreatedEvent() {
@@ -89,6 +96,14 @@ export class TasksComponent implements OnInit {
     this.getTasks();
     this.hideActions = true;
     this.showNewTaskModal = false;
+
+    // TODO - unsubscribe
+    this.store.select('tasks').subscribe(
+      tasks => {
+        if (tasks) {
+        this.showOptions = tasks.showTasksOptions;
+      }
+    });
   }
 
 }
