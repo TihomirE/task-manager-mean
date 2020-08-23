@@ -14,7 +14,7 @@ export class TaskActionsComponent implements OnInit {
     showNewActionModal: boolean;
     showProgress: boolean;
 
-    actions: IAction[];
+    actions = [] as IAction[];
 
     @ViewChild(NewActionComponent) private newActionCmpnt: NewActionComponent;
 
@@ -31,24 +31,25 @@ export class TaskActionsComponent implements OnInit {
         // this.getTasks();
         // this.toogleNewTaskModal();
         this.showProgress = true;
-        this.taskService.createTaskAction(this.task.id, event).subscribe(
+        this.taskService.createTaskAction(this.task._id, event).subscribe(
             result => {
                 this.showProgress = false;
+                this.getActions();
                 // TODO - error handling!
                 this.toogleNewActionModal();
             });
     }
 
     toogleNewActionModal() {
-        if (this.showNewActionModal) {
-            this.newActionCmpnt.resetForm();
-        }
+        // if (this.showNewActionModal) {
+        //     this.newActionCmpnt.resetForm();
+        // }
         this.showNewActionModal = !this.showNewActionModal;
     }
 
     getActions() {
         this.showProgress = true;
-        this.taskService.getActions(this.task.id).subscribe(
+        this.taskService.getActions(this.task._id).subscribe(
             (result: IAction[]) => {
                 this.actions = result;
                 this.showProgress = false;
@@ -58,6 +59,7 @@ export class TaskActionsComponent implements OnInit {
 
     ngOnInit(): void {
         this.showProgress = false;
+        this.showNewActionModal = false;
         this.getActions();
     }
 

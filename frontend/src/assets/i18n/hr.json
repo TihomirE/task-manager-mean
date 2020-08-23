@@ -28,7 +28,8 @@
 
         "ACTIONS": {
             "title": "Radnje",
-            "new_action_btn": "+ Nova Radnja"
+            "new_action_btn": "+ Nova Radnja",
+            "no_actions": "Ovdje nema radnji..."
         }
     },
     "LANGUAGE": {

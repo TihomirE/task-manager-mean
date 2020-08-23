@@ -28,7 +28,8 @@
 
         "ACTIONS": {
             "title": "Aktionen",
-            "new_action_btn": "+ Neu Aktion"
+            "new_action_btn": "+ Neu Aktion",
+            "no_actions": "Hier gibt es keine Aktionen..."
         }
     },
     "LANGUAGE": {

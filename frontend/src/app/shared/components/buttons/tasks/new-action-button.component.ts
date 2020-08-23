@@ -1,16 +1,17 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
+    // tslint:disable-next-line: component-selector
     selector: 'new-action-btn',
-    templateUrl: './new-action-btn.component.html'
+    templateUrl: './new-action-button.component.html'
     // styleUrls: ['./tasks.component.scss']
 })
 
 export class NewActionBtnComponent {
 
-    @Output() creatNewActionEmitter = new EventEmitter();
+    @Output() createNewActionEmitter = new EventEmitter();
 
     createNewAction() {
-        this.creatNewActionEmitter.emit();
+        this.createNewActionEmitter.emit();
     }
 }

@@ -1,7 +1,9 @@
 <div class="tasks-base has-background-white">
-    <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.ACTIONS.title' | translate }}</h1>
+    <section style="display: flex; justify-content: space-between;">
+        <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.ACTIONS.title' | translate }}</h1>
 
-    <new-action-btn (creatNewActionEmitter)="toogleNewActionModal()"></new-action-btn>
+        <new-action-btn (createNewActionEmitter)="toogleNewActionModal()"></new-action-btn>
+    </section>
 
     <action-list [actionList]="actions"></action-list>
 </div>

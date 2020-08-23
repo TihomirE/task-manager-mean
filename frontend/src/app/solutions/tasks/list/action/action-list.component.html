@@ -1,3 +1,5 @@
+<!-- <div *ngIf="actionList"></div> -->
+
 <div class="action" *ngFor="let action of actionList" (click)="onActionClick(action)" [ngClass]="{ 'completed': action.completed }">
     <div class="action-text">
         <p>{{ action.title }}</p>
@@ -20,5 +22,5 @@
     </div> -->
 </div>
 
-<h3 class="empty-state-text" *ngIf="actions.length === 0">There are no tasks here! Click the add button to create
-    a new task.</h3>
+<!-- TODO - style msg below -->
+<h2 *ngIf="actionList.length === 0">{{ 'TASK.ACTIONS.no_actions' | translate }}</h2>

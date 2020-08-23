@@ -28,7 +28,8 @@
 
         "ACTIONS": {
             "title": "Actions",
-            "new_action_btn": "+ New Action"
+            "new_action_btn": "+ New Action",
+            "no_actions": "There are no actions here..."
         }
     },
     "LANGUAGE": {

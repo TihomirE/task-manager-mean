@@ -2,7 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ITask } from '../../interfaces/ITask';
 
 @Component({
-    selector: 'app-task-list',
+    // tslint:disable-next-line: component-selector
+    selector: 'task-list',
     templateUrl: './task-list.component.html'
     // styleUrls: ['./task-details.component.scss']
 })

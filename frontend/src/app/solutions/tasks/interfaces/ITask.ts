@@ -2,7 +2,7 @@ import { IAction } from './IAction';
 import { ITaskEmergency } from './ITaskEmergency';
 
 export interface ITask {
-    id: string;
+    _id: string;
     title: string;
     description: string;
     create_date: string;

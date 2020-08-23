@@ -29,8 +29,8 @@
                         {{ 'TASK.DETAILS.show_options_check' | translate }}
                     </label>
 
-                    <app-task-list [taskList]="taskList" [selectedTask]="selectedTask"
-                        (selectTaskEmitter)="selectTask($event)"></app-task-list>
+                    <task-list [taskList]="taskList" [selectedTask]="selectedTask"
+                        (selectTaskEmitter)="selectTask($event)"></task-list>
 
                 </div>
             </div>

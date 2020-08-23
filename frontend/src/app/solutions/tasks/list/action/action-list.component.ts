@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IAction } from '../../interfaces/IAction';
 
 @Component({
+    // tslint:disable-next-line: component-selector
     selector: 'action-list',
     templateUrl: './action-list.component.html',
     styleUrls: ['./action-list.component.scss']
