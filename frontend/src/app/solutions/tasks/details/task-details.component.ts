@@ -6,7 +6,7 @@ import { ITask } from '../interfaces/ITask';
     templateUrl: './task-details.component.html',
     styleUrls: ['./task-details.component.scss']
 })
-export class TaskDetailsComponent implements OnInit{
+export class TaskDetailsComponent implements OnInit {
 
     disableComplete: boolean;
 

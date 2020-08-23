@@ -27,7 +27,8 @@
         },
 
         "ACTIONS": {
-            "title": "Actions"
+            "title": "Actions",
+            "new_action_btn": "+ New Action"
         }
     },
     "LANGUAGE": {

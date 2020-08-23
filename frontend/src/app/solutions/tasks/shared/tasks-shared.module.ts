@@ -4,10 +4,13 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewActionBtnComponent } from 'src/app/shared/components/buttons/tasks/new-action-button.component';
+import { NewActionComponent } from './new-action/new-action.component';
 
 @NgModule({
     declarations: [
-        NewTaskComponent
+        NewTaskComponent,
+        NewActionComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     providers: [],
     exports: [
-        NewTaskComponent
+        NewTaskComponent,
+        NewActionComponent
     ]
 })
 

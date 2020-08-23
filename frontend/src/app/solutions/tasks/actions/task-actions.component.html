@@ -1,4 +1,15 @@
 <div class="tasks-base has-background-white">
     <h1 class="title task-title has-text-danger" style="width: 60%;">{{ 'TASK.ACTIONS.title' | translate }}</h1>
-    <span>This will be actions list</span>
+
+    <new-action-btn (creatNewActionEmitter)="toogleNewActionModal()"></new-action-btn>
+
+    <action-list [actionList]="actions"></action-list>
+</div>
+
+<div class="modal" [ngClass]="{'is-active': showNewActionModal}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <new-action-component (actionCreateEmitter)="actionCreateEvent($event)"></new-action-component>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="toogleNewActionModal()"></button>
 </div>

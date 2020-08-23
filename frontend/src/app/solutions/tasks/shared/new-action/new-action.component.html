@@ -1,0 +1,16 @@
+<div class="has-background-white">
+    <form [formGroup]="newActionForm" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <p class="control">
+                <input class="input" type="text" formControlName="title" placeholder="{{ 'MAIN.Title' | translate }}" required>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-primary" type="submit" [disabled]="!newActionForm.valid">
+                    {{ 'MAIN.Create' | translate }}
+                </button>
+            </p>
+        </div>
+    </form>
+</div>

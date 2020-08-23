@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ITask } from '../interfaces/ITask';
+import { ITask } from '../../interfaces/ITask';
 
 @Component({
     selector: 'app-task-list',

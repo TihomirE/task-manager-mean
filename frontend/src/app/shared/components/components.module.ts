@@ -6,13 +6,15 @@ import { ShowActionsBtnComponent } from './buttons/tasks/show-actions-btn.compon
 import { AuthNavbarBtnsComponent } from './buttons/navbar/auth-navbar-btns.component';
 import { RouterModule } from '@angular/router';
 import { SetCompletedBtnComponent } from './buttons/tasks/set-completed-btn.component';
+import { NewActionBtnComponent } from './buttons/tasks/new-action-button.component';
 
 @NgModule({
     declarations: [
         NewTaskBtnComponent,
         ShowActionsBtnComponent,
         AuthNavbarBtnsComponent,
-        SetCompletedBtnComponent
+        SetCompletedBtnComponent,
+        NewActionBtnComponent
     ],
     imports: [
         CommonModule,
@@ -25,7 +27,8 @@ import { SetCompletedBtnComponent } from './buttons/tasks/set-completed-btn.comp
         NewTaskBtnComponent,
         ShowActionsBtnComponent,
         AuthNavbarBtnsComponent,
-        SetCompletedBtnComponent
+        SetCompletedBtnComponent,
+        NewActionBtnComponent
     ]
 })
 
