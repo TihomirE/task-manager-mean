@@ -23,6 +23,7 @@
             "title": "Details",
             "show_options_check": "Show options",
             "show_actions_btn": "Show actions",
+            "hide_actions_btn": "Hide actions",
             "set_completed_btn": "Completed"
         },
 

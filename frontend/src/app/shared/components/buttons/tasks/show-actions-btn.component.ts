@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
     selector: 'show-actions-btn',
@@ -6,11 +6,18 @@ import { Component, Output, EventEmitter } from '@angular/core';
     // styleUrls: ['./tasks.component.scss']
 })
 
-export class ShowActionsBtnComponent {
+export class ShowActionsBtnComponent implements OnInit {
 
-    @Output() showActionsEmitter = new EventEmitter();
+    showActionsToogle: boolean;
+
+    @Output() showActionsEmitter = new EventEmitter<boolean>();
 
     showActions() {
-        this.showActionsEmitter.emit();
+        this.showActionsToogle = !this.showActionsToogle;
+        this.showActionsEmitter.emit(this.showActionsToogle);
+    }
+
+    ngOnInit() {
+        this.showActionsToogle = false;
     }
 }

@@ -67,7 +67,6 @@ export class TasksComponent implements OnInit {
 
   selectTask(task: ITask) {
     this.selectedTask = task;
-    // TODO - get actions for task from server (and pass them to actions component)
     this.showTaskActive = true;
     this.showActionActive = false;
     this.hideActions = true;
@@ -82,14 +81,26 @@ export class TasksComponent implements OnInit {
     }, 1000);
   }
 
-  showActions() {
-    this.showTaskActive = false;
-    this.showActionActive = true;
-    this.hideActions = false;
+  showActions(option: boolean) {
+    if (option) {
+      this.showTaskActive = false;
+      this.showActionActive = true;
+      this.hideActions = false;
 
-    setTimeout(() => {
-      this.actionsSelected = true;
-    }, 1000);
+      setTimeout(() => {
+        this.actionsSelected = true;
+      }, 1000);
+    } else {
+      this.showTaskActive = true;
+      this.showActionActive = false;
+      this.hideActions = true;
+
+      setTimeout(() => {
+        this.actionsSelected = false;
+      }, 1000);
+    }
+
+
   }
 
   ngOnInit(): void {
@@ -101,9 +112,9 @@ export class TasksComponent implements OnInit {
     this.store.select('tasks').subscribe(
       tasks => {
         if (tasks) {
-        this.showOptions = tasks.showTasksOptions;
-      }
-    });
+          this.showOptions = tasks.showTasksOptions;
+        }
+      });
   }
 
 }

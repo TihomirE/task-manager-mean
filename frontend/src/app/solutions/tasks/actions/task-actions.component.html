@@ -11,7 +11,7 @@
 <div class="modal" [ngClass]="{'is-active': showNewActionModal}">
     <div class="modal-background"></div>
     <div class="modal-content">
-        <new-action-component (actionCreateEmitter)="actionCreateEvent($event)"></new-action-component>
+        <new-action-component (actionCreatedEmitter)="actionCreateEvent($event)"></new-action-component>
     </div>
     <button class="modal-close is-large" aria-label="close" (click)="toogleNewActionModal()"></button>
 </div>

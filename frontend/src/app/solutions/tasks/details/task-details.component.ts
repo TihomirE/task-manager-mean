@@ -11,14 +11,14 @@ export class TaskDetailsComponent implements OnInit {
     disableComplete: boolean;
 
     @Input() task: ITask;
-    @Output() actionsEmitter = new EventEmitter();
+    @Output() actionsEmitter = new EventEmitter<boolean>();
 
     setTaskCompleted() {
         // TODO - create functionality for set task to completed
     }
 
-    showActions() {
-        this.actionsEmitter.emit();
+    showActions(option: boolean) {
+        this.actionsEmitter.emit(option);
     }
 
     ngOnInit() {

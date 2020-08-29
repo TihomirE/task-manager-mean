@@ -23,6 +23,7 @@
             "title": "Einzelheiten",
             "show_options_check": "Optionen anzeigen",
             "show_actions_btn": "Aktionen anzeigen",
+            "hide_actions_btn": "Aktionen ausblenden",
             "set_completed_btn": "Abgeschlossen"
         },
 

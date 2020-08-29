@@ -37,7 +37,7 @@
 
             <div *ngIf="taskSelected" class="task-details"
                 [ngClass]="{'active': showTaskActive, 'actions-active': showActionActive}">
-                <app-task-details [task]="selectedTask" (actionsEmitter)="showActions()"></app-task-details>
+                <app-task-details [task]="selectedTask" (actionsEmitter)="showActions($event)"></app-task-details>
             </div>
 
 

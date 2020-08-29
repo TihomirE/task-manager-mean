@@ -131,7 +131,7 @@ app.get('/tasks/:taskId/actions/:actionId', (req, res) => {
 app.post('/tasks/:taskId/actions', (req, res) => {
     // create new action for selected task and return it on success
     let newAction = new Action({
-        title: req.body.title,
+        title: req.body.action.title,
         _taskId: req.params.taskId
     });
     newAction.save().then((newActionDoc) => {

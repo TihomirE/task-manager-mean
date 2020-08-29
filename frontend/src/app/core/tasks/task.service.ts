@@ -10,6 +10,7 @@ import { IAction } from 'src/app/solutions/tasks/interfaces/IAction';
 })
 export class TaskService {
 
+  // TODO - error handling and async!!!
   constructor(private webReqService: WebRequestService) { }
 
   getTasks() { // : Observable<ITask[]>

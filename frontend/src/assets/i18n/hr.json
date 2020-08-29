@@ -23,6 +23,7 @@
             "title": "Detalji",
             "show_options_check": "Prikaži opcije",
             "show_actions_btn": "Prikaži radnje",
+            "hide_actions_btn": "Sakrij radnje",
             "set_completed_btn": "Završen"
         },
 

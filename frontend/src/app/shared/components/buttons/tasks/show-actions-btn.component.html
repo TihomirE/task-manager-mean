@@ -1,2 +1,4 @@
 <button class="button is-primary has-text-white" (click)="showActions()">
-    {{ 'TASK.DETAILS.show_actions_btn' | translate }}</button>
+    <span *ngIf="!showActionsToogle">{{ 'TASK.DETAILS.show_actions_btn' | translate }}</span>
+    <span *ngIf="showActionsToogle">{{ 'TASK.DETAILS.hide_actions_btn' | translate }}</span>
+</button>
