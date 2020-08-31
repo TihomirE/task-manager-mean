@@ -6,7 +6,7 @@ const { mongoose } = require('./db/mongoose');
 const bodyParser = require('body-parser');
 
 // load the mongoose models
-const { Task, Action } = require('./db/models');
+const { Task, Action, User } = require('./db/models');
 
 /* LOAD MIDDLEWARE */
 // pass the request body of http request
@@ -170,6 +170,69 @@ app.delete('/tasks/:taskId/actions/:actionId', (req, res) => {
     });
 })
 
+
+/* USER ROUTES */
+
+/**
+ * POST /users
+ * Purpose: Sign up
+ */
+app.post('/users', (req, res) => {
+    // User sign up
+
+    let body = req.body;
+    let newUser = new User(body);
+
+    newUser.save().then(() => {
+        return newUser.createSession();
+    }).then((refreshToken) => {
+        // Session created successfully - refreshToken returned.
+        // now we geneate an access auth token for the user
+
+        return newUser.generateAccessAuthToken().then((accessToken) => {
+            // access auth token generated successfully, now we return an object containing the auth tokens
+            return { accessToken, refreshToken }
+        });
+    }).then((authTokens) => {
+        // Now we construct and send the response to the user with their auth tokens in the header and the user object in the body
+        res
+            .header('x-refresh-token', authTokens.refreshToken)
+            .header('x-access-token', authTokens.accessToken)
+            .send(newUser);
+    }).catch((e) => {
+        res.status(400).send(e);
+    })
+})
+
+
+/**
+ * POST /users/login
+ * Purpose: Login
+ */
+app.post('/users/login', (req, res) => {
+    let email = req.body.email;
+    let password = req.body.password;
+
+    User.findByCredentials(email, password).then((user) => {
+        return user.createSession().then((refreshToken) => {
+            // Session created successfully - refreshToken returned.
+            // now we geneate an access auth token for the user
+
+            return user.generateAccessAuthToken().then((accessToken) => {
+                // access auth token generated successfully, now we return an object containing the auth tokens
+                return { accessToken, refreshToken }
+            });
+        }).then((authTokens) => {
+            // Now we construct and send the response to the user with their auth tokens in the header and the user object in the body
+            res
+                .header('x-refresh-token', authTokens.refreshToken)
+                .header('x-access-token', authTokens.accessToken)
+                .send(user);
+        })
+    }).catch((e) => {
+        res.status(400).send(e);
+    });
+})
 
 
 
