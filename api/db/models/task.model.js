@@ -12,7 +12,13 @@ const TaskSchema = new mongoose.Schema({
         required: false,
         minlength: 1,
         trim: true
+    },
+    // with authentication
+    _userId: {
+        type: mongoose.Types.ObjectId,
+        required: true
     }
+
     // TODO - create soft delete
 })
 

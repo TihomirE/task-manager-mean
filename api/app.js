@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 
 const { mongoose } = require('./db/mongoose');
-
 const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
 // load the mongoose models
 const { Task, Action, User } = require('./db/models');
@@ -109,17 +109,20 @@ let verifySession = (req, res, next) => {
 * GET /
 *  base test route
 */
-app.get('/', (req, res) => {
-    res.send('App here');
-})
+// app.get('/', (req, res) => {
+//     res.send('App here');
+// })
 
 /*
 * GET /tasks
 * Purpose: get all tasks
 */
-app.get('/tasks', (req, res) => {
-    // return an array of all tasks in the database
-    Task.find({}).then((tasks) => {
+app.get('/tasks', authenticate, (req, res) => {
+    // return an array of all tasks in the database that are assigned to current user
+    Task.find({
+        // from the model = from the success authenticate
+        user_id = req.user_id
+    }).then((tasks) => {
         res.send(tasks);
     });
 })
