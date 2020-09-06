@@ -120,8 +120,8 @@ let verifySession = (req, res, next) => {
 app.get('/tasks', authenticate, (req, res) => {
     // return an array of all tasks in the database that are assigned to current user
     Task.find({
-        // from the model = from the success authenticate
-        user_id = req.user_id
+        // from the model : from the success authenticate
+        _userId: req.user_id
     }).then((tasks) => {
         res.send(tasks);
     });
@@ -131,15 +131,15 @@ app.get('/tasks', authenticate, (req, res) => {
 * POST /tasks
 * Purpose: create a task
 */
-app.post('/tasks', (req, res) => {
+app.post('/tasks', authenticate, (req, res) => {
     // create new task and return the new task document (with id) - format JSON request body
     let title = req.body.task.title;
     let description = req.body.task.description;
-    debugger;
 
     let newTask = new Task({
         title,
-        description
+        description,
+        _userId: req.user_id
     });
     newTask.save().then((taskDoc) => {
         res.send(taskDoc);
@@ -150,9 +150,9 @@ app.post('/tasks', (req, res) => {
 * PATCH /tasks/:id
 * Purpose: update a task
 */
-app.patch('/tasks/:id', (req, res) => {
-    // find task by id and update the object with received object in body
-    Task.findOneAndUpdate({ _id: req.params.id }, {
+app.patch('/tasks/:id', authenticate, (req, res) => {
+    // find task by id and userId and update the object with received object in body
+    Task.findOneAndUpdate({ _id: req.params.id, _userId: req.user_id }, {
         $set: req.body
     }).then(() => {
         res.sendStatus(200);
@@ -163,11 +163,17 @@ app.patch('/tasks/:id', (req, res) => {
 * Delete /tasks/:id
 * Purpose: delete a task
 */
-app.delete('/tasks/:id', (req, res) => {
+app.delete('/tasks/:id', authenticate, (req, res) => {
     // delete selected task
     // TODO - create soft delete
-    Task.findOneAndRemove({ _id: req.params.id }).then((removedListDoc) => {
-        res.send(removedListDoc);
+    Task.findOneAndRemove({
+        _id: req.params.id,
+        _userId: req.user_id
+    }).then((removedTaskDoc) => {
+        res.send(removedTaskDoc);
+
+        // also remove the actions connected with the task
+        deleteActionsFromTask(removedTaskDoc._id);
     });
 })
 
@@ -177,8 +183,9 @@ app.delete('/tasks/:id', (req, res) => {
 * GET /tasks/:id/actions
 * Purpose: get all actions for selected task
 */
-app.get('/tasks/:taskId/actions', (req, res) => {
+app.get('/tasks/:taskId/actions', authenticate, (req, res) => {
     // return an array of all actions for selected task in the database
+    // no need to match to user since it's done for list which is above(parent) of the action
     Action.find({
         _taskId: req.params.taskId
     }).then((actions) => {
@@ -190,9 +197,9 @@ app.get('/tasks/:taskId/actions', (req, res) => {
 * GET /tasks/:taskId/actions/:actionId
 * Purpose: get an specific action with id
 */
-app.get('/tasks/:taskId/actions/:actionId', (req, res) => {
+app.get('/tasks/:taskId/actions/:actionId', authenticate, (req, res) => {
     // find action by id and return it
-    Action.findOne({ 
+    Action.findOne({
         _id: req.params.actionId,
         _taskId: req.params.taskId
     }).then((action) => {
@@ -204,46 +211,103 @@ app.get('/tasks/:taskId/actions/:actionId', (req, res) => {
 * POST /tasks/:id/actions
 * Purpose: create new action for selected task
 */
-app.post('/tasks/:taskId/actions', (req, res) => {
-    // create new action for selected task and return it on success
-    let newAction = new Action({
-        title: req.body.action.title,
-        _taskId: req.params.taskId
-    });
-    newAction.save().then((newActionDoc) => {
-        res.send(newActionDoc);
-    });
+app.post('/tasks/:taskId/actions', authenticate, (req, res) => {
+    // check if the user is the task owner in order to create actions
+    Task.findOne({
+        _id: req.params.taskId,
+        _userId: req.user_id
+    }).then((task) => {
+        if (task) {
+            // task object with the specified conditions was found
+            // therefore the currently authenticated user can create new actions
+            return true;
+        }
+        // else - the task object is undefined
+        return false;
+    }).then((canCreateTask) => {
+        if (canCreateTask) {
+            // create new action for selected task and return it on success
+            let newAction = new Action({
+                title: req.body.action.title,
+                _taskId: req.params.taskId
+            });
+            newAction.save().then((newActionDoc) => {
+                res.send(newActionDoc);
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    })
 })
 
 /*
 * PATCH /tasks/:taskId/actions/:actionId
 * Purpose: update an action 
 */
-app.patch('/tasks/:taskId/actions/:actionId', (req, res) => {
-    // find action by id and update the object with received object in body
-    Action.findOneAndUpdate({ 
-        _id: req.params.actionId,
-        _taskId: req.params.taskId
-    }, {
-        $set: req.body
-    }).then(() => {
-        res.sendStatus(200);
-    });
+app.patch('/tasks/:taskId/actions/:actionId', authenticate, (req, res) => {
+
+    Task.findOne({
+        _id: req.params.taskId,
+        _userId: req.user_id
+    }).then((task) => {
+        if (task) {
+            // task object with the specified conditions was found
+            // therefore the currently authenticated user can make updates to tasks within this list
+            return true;
+        }
+
+        // else - the task object is undefined
+        return false;
+    }).then((canUpdateActions) => {
+        if (canUpdateActions) {
+            // the currently authenticated user can update actions
+            Action.findOneAndUpdate({
+                _id: req.params.actionId,
+                _taskId: req.params.taskId
+            }, {
+                $set: req.body
+            }
+            ).then(() => {
+                res.send({ message: 'Updated successfully.' })
+            })
+        } else {
+            res.sendStatus(404);
+        }
+    })
 });
 
 /*
 * Delete /tasks/:taskId/actions/:actionId
 * Purpose: delete a task
 */
-app.delete('/tasks/:taskId/actions/:actionId', (req, res) => {
-    // delete selected task
-    // TODO - create soft delete
-    Action.findOneAndRemove({ 
-        _id: req.params.actionId,
-        _taskId: req.params.taskId 
-    }).then((removedActionDoc) => {
-        res.send(removedActionDoc);
-    });
+app.delete('/tasks/:taskId/actions/:actionId', authenticate, (req, res) => {
+    Task.findOne({
+        _id: req.params.taskId,
+        _userId: req.user_id
+    }).then((task) => {
+        if (task) {
+            // task object with the specified conditions was found
+            // therefore the currently authenticated user can make updates to tasks within this list
+            return true;
+        }
+
+        // else - the task object is undefined
+        return false;
+    }).then((canDeleteActions) => {
+        if (canDeleteActions) {
+            // delete selected task
+            // TODO - create soft delete
+            Action.findOneAndRemove({
+                _id: req.params.actionId,
+                _taskId: req.params.taskId
+            }).then((removedActionDoc) => {
+                res.send(removedActionDoc);
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    })
+
 })
 
 
@@ -324,7 +388,18 @@ app.get('/users/active/access-token', verifySession, (req, res) => {
     });
 })
 
+/*
+** HELPER METHODS **
+*/
 
+let deleteActionsFromTask = (_taskId) => {
+    Action.deleteMany({
+        _taskId
+    }).then(() => {
+        // just for testing check
+        console.log("Actions from task: " + _taskId + " were deleted!");
+    });
+}
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");
