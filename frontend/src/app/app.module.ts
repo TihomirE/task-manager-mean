@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TasksModule } from './solutions/tasks/tasks.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { WebRequestService } from './core/request/web-request.service';
 import { LanguageService } from './core/language/language.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -13,6 +13,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { WebRequestInterceptor } from './core/auth/web-request.interceptor';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -43,7 +44,11 @@ export function createTranslateLoader(http: HttpClient) {
       logOnly: environment.production
     })
   ],
-  providers: [WebRequestService, LanguageService],
+  providers: [
+    WebRequestService,
+    LanguageService,
+    { provide: HTTP_INTERCEPTORS, useClass: WebRequestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

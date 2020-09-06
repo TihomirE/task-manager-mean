@@ -27,7 +27,7 @@ export class AuthService {
 
   logout() {
     this.removeSession();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 
   getAccessToken() {
@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   getNewAccessToken() {
-    return this.http.get(`${ROOT_URL}/users/me/access-token`, {
+    return this.http.get(`${ROOT_URL}/users/active/access-token`, {
       headers: {
         'x-refresh-token': this.getRefreshToken(),
         '_id': this.getUserId()
