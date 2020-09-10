@@ -30,6 +30,18 @@ export class AuthService {
     this.router.navigate(['/auth/login']);
   }
 
+  signup(email: string, password: string) {
+    return this.webService.signup(email, password).pipe(
+      // to avoid running login method multiple times
+      shareReplay(),
+      tap((res: HttpResponse<any>) => {
+        // the auth tokens will be in this header
+        this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   getAccessToken() {
     return localStorage.getItem('x-access-token');
   }

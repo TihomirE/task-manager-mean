@@ -317,7 +317,7 @@ app.delete('/tasks/:taskId/actions/:actionId', authenticate, (req, res) => {
  * POST /users
  * Purpose: Sign up
  */
-app.post('/users', (req, res) => {
+app.post('/users/signup', (req, res) => {
     // User sign up
 
     let body = req.body;

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PlaceholderHelperService } from 'src/app/core/helpers/placeholder/placeholder-helper.service';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sign-up-component',
@@ -11,12 +14,12 @@ import { PlaceholderHelperService } from 'src/app/core/helpers/placeholder/place
 export class SignUpComponent implements OnInit {
 
     signUpForm = this.fb.group({
-        firstName: ['', Validators.required],
-        lastName: [''],
-        email: ['', Validators.required, Validators.email],
+        // firstName: ['', Validators.required],
+        // lastName: [''],
+        email: ['', [Validators.required, Validators.email]],
         password: ['', Validators.required],
-        city: [''],
-        phone: ['']
+        // city: [''],
+        // phone: ['']
     });
 
     formPlaceholders = {} as {
@@ -28,9 +31,20 @@ export class SignUpComponent implements OnInit {
         phone: string
     };
 
-    constructor(private fb: FormBuilder, private placeholderHelperService: PlaceholderHelperService) { }
+    constructor(
+        private fb: FormBuilder,
+        private placeholderHelperService: PlaceholderHelperService,
+        private authService: AuthService,
+        private router: Router) { }
 
     onSubmit() {
+        this.authService.signup(this.signUpForm.value.email, this.signUpForm.value.password).subscribe(
+            (res: HttpResponse<any>) => {
+                this.router.navigate(['/app']);
+            },
+            // TODO - handle this with toaster
+            (error) => alert('User/email already exists')
+        );
         console.log('Form submited');
     }
 

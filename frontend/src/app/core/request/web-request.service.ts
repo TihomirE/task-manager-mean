@@ -33,4 +33,10 @@ export class WebRequestService {
     }, { observe: 'response' });
   }
 
+  signup(email: string, password: string) {
+    return this.http.post(`${ROOT_URL}/users/signup`, {
+      email, password
+    }, { observe: 'response' });
+  }
+
 }
