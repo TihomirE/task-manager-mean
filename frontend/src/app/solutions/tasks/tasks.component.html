@@ -1,5 +1,5 @@
 <div *ngIf="!showProgress">
-    <div *ngIf="taskList.length < 1" class="msg-container" style="padding: 24px;">
+    <div *ngIf="taskList$.length < 1" class="msg-container" style="padding: 24px;">
         <article class="message is-warning msg-container">
             <div class="message-header msg-header">
                 <p>{{ 'TASK.no_tasks_msg' | translate }}</p>
@@ -14,7 +14,7 @@
         </article>
     </div>
 
-    <div *ngIf="taskList.length > 0">
+    <div *ngIf="taskList$.length > 0">
         <div class="tasks-container">
             <div class="tasks-main" [ngClass]="{'task-active': showTaskActive, 'actions-active': showActionActive}">
                 <div class="has-background-white tasks-base">
@@ -29,7 +29,7 @@
                         {{ 'TASK.DETAILS.show_options_check' | translate }}
                     </label>
 
-                    <task-list [taskList]="taskList" [selectedTask]="selectedTask"
+                    <task-list [taskList]="taskList$ | async" [selectedTask]="selectedTask"
                         (selectTaskEmitter)="selectTask($event)"></task-list>
 
                 </div>

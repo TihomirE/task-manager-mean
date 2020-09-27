@@ -13,7 +13,7 @@ export class TaskService {
   // TODO - error handling and async!!!
   constructor(private webReqService: WebRequestService) { }
 
-  getTasks() { // : Observable<ITask[]>
+  getTasks(): Observable<ITask[]> {
     return this.webReqService.get('tasks');
   }
 

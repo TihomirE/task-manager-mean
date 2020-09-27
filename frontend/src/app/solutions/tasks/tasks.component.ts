@@ -3,6 +3,7 @@ import { TaskService } from 'src/app/core/tasks/task.service';
 import { ITask } from './interfaces/ITask';
 import { NewTaskComponent } from './shared/new-task/new-task.component';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-tasks',
@@ -11,7 +12,7 @@ import { Store } from '@ngrx/store';
 })
 export class TasksComponent implements OnInit {
 
-  taskList: ITask[];
+  taskList$: Observable<ITask[]>;
   selectedTask: ITask;
 
   // TODO - refactor to enum, _tasksShowHelper
@@ -53,16 +54,10 @@ export class TasksComponent implements OnInit {
     this.toogleNewTaskModal();
   }
 
-  getTasks() {
+  async getTasks() {
     this.showProgress = true;
-    this.taskService.getTasks().subscribe(
-      (result: ITask[]) => {
-        this.taskList = result;
-        // setTimeout(() => {
-        //   this.showProgress = false;
-        // }, 2000);
-        this.showProgress = false;
-      });
+    this.taskList$ = this.taskService.getTasks();
+    this.showProgress = false;
   }
 
   selectTask(task: ITask) {
@@ -99,8 +94,6 @@ export class TasksComponent implements OnInit {
         this.actionsSelected = false;
       }, 1000);
     }
-
-
   }
 
   ngOnInit(): void {
