@@ -18,5 +18,4 @@ export class TaskListComponent {
     selectTask(selectedTask: ITask) {
         this.selectTaskEmitter.emit(selectedTask);
     }
-
 }

@@ -3,6 +3,8 @@ import { PlaceholderHelperService } from 'src/app/core/helpers/placeholder/place
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { EventEmitter } from 'events';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-login-component',
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
         this.showErrMsg = false;
         this.authService.login(this.email, this.password).subscribe(
             (res: HttpResponse<any>) => {
+                // TODO - raise a login success event (Subject) so the navbar can display user info and hide auth buttons
                 this.router.navigate(['/app']);
             },
             // TODO - handle this with toaster

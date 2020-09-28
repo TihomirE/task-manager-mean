@@ -24,8 +24,16 @@
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
+      <div class="navbar-item" *ngIf="!authenticated">
         <auth-navbar-btns></auth-navbar-btns>
+      </div>
+      <div class="navbar-item" *ngIf="authenticated">
+        <p>USER Info here</p>
+        <div class="buttons">
+          <a class="button is-light" (click)="logout()">
+              {{ 'AUTH.LOGIN.logout_btn' | translate }}
+          </a>
+      </div>
       </div>
     </div>
   </div>

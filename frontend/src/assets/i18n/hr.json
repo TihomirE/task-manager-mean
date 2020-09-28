@@ -10,7 +10,8 @@
             "login_btn": "Prijava",
             "sign_up_btn": "Kreiraj račun",
             "login_msg": "Već imaš račun?",
-            "sign_up_msg": "Još uvijek nemaš račun?"
+            "sign_up_msg": "Još uvijek nemaš račun?",
+            "logout_btn": "Odjava"
         }
     },
     "TASK": {

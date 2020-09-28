@@ -1,7 +1,15 @@
-<div class="list-menu" *ngFor="let task of taskList">
-    <a class="list-menu-item" (click)="selectTask(task)"
-        [ngClass]="{'is-active': task == selectedTask}">
-        {{task.title}}</a>
+<div *ngIf="taskList.length < 1" class="msg-container" style="padding: 24px;">
+    <article class="message is-warning msg-container">
+        <div class="message-header msg-header">
+            <p>{{ 'TASK.no_tasks_msg' | translate }}</p>
+        </div>
+    </article>
+</div>
+<div *ngIf="taskList.length > 0">
+    <div class="list-menu" *ngFor="let task of taskList">
+        <a class="list-menu-item" (click)="selectTask(task)" [ngClass]="{'is-active': task == selectedTask}">
+            {{task.title}}</a>
+    </div>
 </div>
 
 <!-- TODO -->

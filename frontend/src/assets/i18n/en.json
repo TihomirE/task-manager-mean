@@ -10,7 +10,8 @@
             "login_btn": "Login",
             "sign_up_btn": "Sign up",
             "login_msg": "Already have an account?",
-            "sign_up_msg": "Don't have an account still?"
+            "sign_up_msg": "Don't have an account still?",
+            "logout_btn": "Logout"
         }
     },
     "TASK": {

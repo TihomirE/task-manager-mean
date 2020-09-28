@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   navbarBurgers: any;
+  authenticated: boolean;
+  authSubscription: Subscription;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    this.authSubscription = this.authService.authenticationSuccessEvent.subscribe(event => {
+      event ? this.authenticated = true : this.authenticated = false;
+    });
+  }
 
+  logout() {
+    this.authService.logout();
+  }
 
   start() {
     // Get all "navbar-burger" elements
@@ -40,4 +51,9 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.start();
   }
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
+  }
+
 }

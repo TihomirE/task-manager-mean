@@ -3,13 +3,15 @@ import { WebRequestService } from '../request/web-request.service';
 import { shareReplay, tap, catchError } from 'rxjs/operators';
 import { HttpResponse, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 import { ROOT_URL } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  authenticationSuccessEvent = new Subject<boolean>();
 
   constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
@@ -20,6 +22,7 @@ export class AuthService {
       tap((res: HttpResponse<any>) => {
         // the auth tokens will be in this header
         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+        this.authenticationSuccessEvent.next(true);
       }),
       catchError(this.handleError)
     );
@@ -27,6 +30,7 @@ export class AuthService {
 
   logout() {
     this.removeSession();
+    this.authenticationSuccessEvent.next(false);
     this.router.navigate(['/auth/login']);
   }
 
