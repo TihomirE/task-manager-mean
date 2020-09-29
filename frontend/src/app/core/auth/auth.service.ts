@@ -21,7 +21,7 @@ export class AuthService {
       shareReplay(),
       tap((res: HttpResponse<any>) => {
         // the auth tokens will be in this header
-        this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+        this.setSession(res.body._id, res.body.email, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
         this.authenticationSuccessEvent.next(true);
       }),
       catchError(this.handleError)
@@ -40,7 +40,7 @@ export class AuthService {
       shareReplay(),
       tap((res: HttpResponse<any>) => {
         // the auth tokens will be in this header
-        this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+        this.setSession(res.body._id, res.body.email, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
       }),
       catchError(this.handleError)
     );
@@ -58,13 +58,18 @@ export class AuthService {
     return localStorage.getItem('user-id');
   }
 
+  getUserEmail() {
+    return localStorage.getItem('user-email');
+  }
+
   setAccessToken(accessToken: string) {
-    localStorage.setItem('x-access-token', accessToken)
+    localStorage.setItem('x-access-token', accessToken);
   }
 
   // TODO - this needs to be refactored to ngrx store
-  private setSession(userId: string, accessToken: string, refreshToken: string) {
+  private setSession(userId: string, email: string, accessToken: string, refreshToken: string) {
     localStorage.setItem('user-id', userId);
+    localStorage.setItem('user-email', email);
     localStorage.setItem('x-access-token', accessToken);
     localStorage.setItem('x-refresh-token', refreshToken);
   }

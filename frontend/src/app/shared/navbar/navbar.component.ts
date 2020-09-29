@@ -13,10 +13,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   navbarBurgers: any;
   authenticated: boolean;
   authSubscription: Subscription;
+  userEmail: string;
 
   constructor(private authService: AuthService) {
     this.authSubscription = this.authService.authenticationSuccessEvent.subscribe(event => {
       event ? this.authenticated = true : this.authenticated = false;
+      this.userEmail = this.authService.getUserEmail();
     });
   }
 
@@ -24,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
-  start() {
+  navbarStartSetup() {
     // Get all "navbar-burger" elements
     this.navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -49,7 +51,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.start();
+    this.navbarStartSetup();
   }
 
   ngOnDestroy(): void {

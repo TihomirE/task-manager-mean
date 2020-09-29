@@ -28,7 +28,7 @@
         <auth-navbar-btns></auth-navbar-btns>
       </div>
       <div class="navbar-item" *ngIf="authenticated">
-        <p>USER Info here</p>
+        <a class="navbar-item" [routerLink]="['/admin/user']">{{ userEmail }}</a>
         <div class="buttons">
           <a class="button is-light" (click)="logout()">
               {{ 'AUTH.LOGIN.logout_btn' | translate }}

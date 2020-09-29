@@ -48,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
     WebRequestService,
     LanguageService,
     { provide: HTTP_INTERCEPTORS, useClass: WebRequestInterceptor, multi: true }
+    // TODO - add initializer service (clear local storage, prepare app etc)
   ],
   bootstrap: [AppComponent]
 })
